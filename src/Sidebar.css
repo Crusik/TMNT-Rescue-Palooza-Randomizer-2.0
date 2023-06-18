@@ -1,0 +1,72 @@
+/* .sidebar {
+    background: radial-gradient(rgb(5, 61, 5), rgb(8, 54, 8));
+    border-right: 2px solid white;
+    padding: 1%;
+  }
+
+h1#headerStages,
+h1#headerCharacters {
+  color: rgb(228, 238, 228);
+  font-family: Georgia, serif;
+  font-size: 125%;
+  height: 8vh;
+  margin: auto;
+  text-align: center;
+  width: 80%;
+}
+
+.button {
+  background: #1fa91f;
+  border: 3px solid #fff;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-family: Arial, sans-serif;
+  font-size: 120%;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin: 0 1.8rem;
+  padding: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 70%;
+}
+
+#removeCharacterButton,
+#removeStageButton {
+  background-color: #ff0000;
+  margin-top: 1.5rem;
+}
+
+#removeCharacterButton:disabled,
+#removeStageButton:disabled,
+#stageButton:disabled,
+#characterButton:disabled {
+  background-color: rgb(150, 150, 150);
+}
+
+.stages {
+  background: radial-gradient(rgb(80, 156, 80), rgb(6, 95, 6));
+  color: rgb(228, 238, 228);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-size: 0.8rem;
+  padding-top: 1rem;
+  position: relative;
+  height: 100vh;
+}
+
+.button:hover {
+    background-color: #fff;
+    border-color: #1fa91f;
+    color: #1fa91f;
+  }
+  
+  #removeStageButton:hover,
+  #removeCharacterButton:hover {
+    background-color: #fff;
+    border-color: #ff0000;
+    color: #ff0000;
+  } */
