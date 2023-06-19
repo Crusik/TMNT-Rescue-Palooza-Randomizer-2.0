@@ -1,3 +1,7 @@
+This project is a stage and character randomizer for a "Fan made" TMNT old school Beat 'em Up style game from NES/SNES/GENESIS. You begin with the four turtles, but as you complete each stage it unlocks certain characters that are tied to that stage. This is a project that I originally made with Vanilla JS, but now I am working on converting it to React.JS while adding at least 1-2 new features.
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
