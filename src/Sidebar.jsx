@@ -1,24 +1,17 @@
 import React from 'react';
-import HeaderStages from './HeaderStages';
-import HeaderCharacters from './HeaderCharacters';
 import './Sidebar.css';
 import PickCharacter from './PickCharacter';
 import PickStage from './PickStage';
 import RemoveStage from './RemoveStage';
 import RemoveCharacter from './RemoveCharacter';
 
-function Sidebar(){
+const Sidebar = (props) => {
+
+    const { handleStageSelection } = props;
+
     return (
         <div className='sidebar'>
-            <header>
-                Stage Picker
-            </header>
-            <HeaderStages />
-            <PickStage />
-            <header>
-                Character Picker
-            </header>
-            <HeaderCharacters />
+            <PickStage handleStageSelection={handleStageSelection} />
             <PickCharacter />
             <RemoveStage />
             <RemoveCharacter />

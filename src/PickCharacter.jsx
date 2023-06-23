@@ -1,9 +1,13 @@
 import React from 'react';
 import './Sidebar';
 
-function PickCharacter(){
+function PickCharacter(props){
     return (
-        <button className="button" id="characterButton">Start</button>
+        <>
+            <header>Character Picker</header>
+            <h1 id='headerCharacters'>?</h1>
+            <button className="button" id="characterButton">Start</button>
+        </>
     )
 }
 
