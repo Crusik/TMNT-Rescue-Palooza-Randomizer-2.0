@@ -9,11 +9,15 @@ const Sidebar = (props) => {
 
     const { handleStageSelection } = props;
     const { disableStageButton } = props;
+    const { x } = props;
+    const { setX } = props;
+    const { y } = props;
+    const { setY } = props;
 
     return (
         <div className='sidebar'>
             <PickStage handleStageSelection={handleStageSelection} disableStageButton={disableStageButton}/>
-            <PickCharacter />
+            <PickCharacter y={y} setY={setY}/>
             <RemoveStage />
             <RemoveCharacter />
         </div>

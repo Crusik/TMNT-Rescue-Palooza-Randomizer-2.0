@@ -17,7 +17,7 @@ const App = () => {
 
   // const []
   const [x, setX] = useState(0); // Assuming x is a state value
-  const [y, setY] = useState(13); // Assuming y is a state value
+  let [y, setY] = useState(13); // Assuming y is a state value
 
   const disableStageButton = () => {
     if (y < 15) {
@@ -81,7 +81,7 @@ const App = () => {
 
   return (
       <div className='app'>
-          <Sidebar characterList={characterList} setCharacterList={setCharacterList} disableStageButton={disableStageButton}/>
+          <Sidebar x={x} y={y} setY={setY} setX={setX} characterList={characterList} setCharacterList={setCharacterList} disableStageButton={disableStageButton}/>
           {/* <Sidebar handleStageSelection={handleStageSelection} characterList={characterList} setCharacterList={setCharacterList} />
           <Stages  handleStageSelection={handleStageSelection} characterList={characterList} setCharacterList={setCharacterList} /> */}
           <Stages characterList={characterList} setCharacterList={setCharacterList} />

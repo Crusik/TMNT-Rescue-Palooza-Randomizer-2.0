@@ -157,7 +157,7 @@ export let newStageList = [{ stage: "Default", characters: ["Leo", "Mike", "Raph
 export let i;
 // Actual x,y values
 export let x = 0;
-let y = 13;
+export let y = 13;
 export const minTimer = 10;
 export const maxTimer = 20;
 // for quick testing
@@ -268,7 +268,7 @@ export function randomStageSound() {
 }
 
 export let headerStages = document.getElementById('headerStages')
-export let headerNames = document.getElementById('headerNames')
+export let headerCharacters = document.getElementById('headerCharacters')
 
 // stageButton.addEventListener("click", function() {
 //     disableButtons();
@@ -366,43 +366,43 @@ export function runTwice(func) {
 //     // multipleCalls(characterPicker).times(1)
 //     // stageAndCharacterCheck()
 // })
-export function characterPicker() {
-    randomStageSound();
-    disableButtons();
-    function characterTimer(min, max) {
-        // Indexes through the list of characters that are available, then stops at a random time to pick a character.
-        let intervalHandle = setInterval(function() {
-            headerNames.textContent = characterList[i++ % characterList.length]["character"];
-        }, 60);
-        var rand = Math.floor(Math.random() * (max - min + 1) + min); //Generate Random number between min - max
-        console.log(rand / 2 + ' seconds');
-        setTimeout(function() {
-            clearInterval(intervalHandle);
-        }, 500 * rand);
-        function displayCharacter() {
-            setTimeout(() => {
-                // Selecting the character Divs which will start at 13 and increase +1 each time this is ran.
-                let characters = document.getElementById(y);
-                characters.textContent = headerNames.textContent;
-                // Animation via gsap
-                const tl = gsap.timeline({ defaults: { ease: "power0.out" } });
-                tl.to(characters, { autoAlpha: "1", duration: 1 });
-                tl.to(characters, { transform: "translateX(0)", duration: 1 }, "-=1");
-                // Name of the next selected character
-                // const randomCharacter = document.querySelector("#headerNames");
-                // const randomPick = randomCharacter.textContent;
-                if (y < 47){
-                    y++;
-                }
-                // Allow the button to be pressed again for the next character once a character is picked.
-                // playVoice();
-                // stageAndCharacterCheck();
-            }, 500 * rand + 50)
-        }
-        displayCharacter();
-    }
-    characterTimer(minTimer, maxTimer)
-};
+// export function characterPicker() {
+//     randomStageSound();
+//     disableButtons();
+//     function characterTimer(min, max) {
+//         // Indexes through the list of characters that are available, then stops at a random time to pick a character.
+//         let intervalHandle = setInterval(function() {
+//             headerNames.textContent = characterList[i++ % characterList.length]["character"];
+//         }, 60);
+//         var rand = Math.floor(Math.random() * (max - min + 1) + min); //Generate Random number between min - max
+//         console.log(rand / 2 + ' seconds');
+//         setTimeout(function() {
+//             clearInterval(intervalHandle);
+//         }, 500 * rand);
+//         function displayCharacter() {
+//             setTimeout(() => {
+//                 // Selecting the character Divs which will start at 13 and increase +1 each time this is ran.
+//                 let characters = document.getElementById(y);
+//                 characters.textContent = headerNames.textContent;
+//                 // Animation via gsap
+//                 const tl = gsap.timeline({ defaults: { ease: "power0.out" } });
+//                 tl.to(characters, { autoAlpha: "1", duration: 1 });
+//                 tl.to(characters, { transform: "translateX(0)", duration: 1 }, "-=1");
+//                 // Name of the next selected character
+//                 // const randomCharacter = document.querySelector("#headerNames");
+//                 // const randomPick = randomCharacter.textContent;
+//                 if (y < 47){
+//                     y++;
+//                 }
+//                 // Allow the button to be pressed again for the next character once a character is picked.
+//                 // playVoice();
+//                 // stageAndCharacterCheck();
+//             }, 500 * rand + 50)
+//         }
+//         displayCharacter();
+//     }
+//     characterTimer(minTimer, maxTimer)
+// };
 
 // removeStageButton.addEventListener("click", function() {
 //         let lastStage = document.getElementById(x - 1);
