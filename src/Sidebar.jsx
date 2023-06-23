@@ -8,10 +8,11 @@ import RemoveCharacter from './RemoveCharacter';
 const Sidebar = (props) => {
 
     const { handleStageSelection } = props;
+    const { disableStageButton } = props;
 
     return (
         <div className='sidebar'>
-            <PickStage handleStageSelection={handleStageSelection} />
+            <PickStage handleStageSelection={handleStageSelection} disableStageButton={disableStageButton}/>
             <PickCharacter />
             <RemoveStage />
             <RemoveCharacter />

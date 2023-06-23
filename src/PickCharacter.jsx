@@ -1,6 +1,8 @@
 import React from 'react';
 import './Sidebar';
 
+export let characterButton = document.getElementById('characterButton');
+
 function PickCharacter(props){
     return (
         <>
