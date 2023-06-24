@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Sidebar';
-import {randomStageSound, disableButtons, minTimer, maxTimer} from './JSPlaceholder'
+import {randomStageSound, disableButtons, minTimer, maxTimer, stageAndCharacterCheck} from './JSPlaceholder'
 import { gsap } from 'gsap';
 
 // export let characterButton = document.getElementById('characterButton');
@@ -8,6 +8,8 @@ import { gsap } from 'gsap';
 const PickCharacter = (props) => {
     const { y } = props;
     const { setY } = props;
+    const { x } = props;
+    // const { setX } = props;
     const handleCharacterSelection = () => {
         // console.log(y)
         let headerCharacters = document.getElementById('headerCharacters')
@@ -74,7 +76,7 @@ const PickCharacter = (props) => {
                     }
                     // Allow the button to be pressed again for the next character once a character is picked.
                     // playVoice();
-                    // stageAndCharacterCheck();
+                    stageAndCharacterCheck(x);
                 }, 500 * rand + 50)
             }
             displayCharacter();

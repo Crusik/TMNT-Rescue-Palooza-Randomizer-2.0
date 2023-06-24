@@ -176,6 +176,8 @@ export function disableButtons() {
 }
 
 export function removeButtonsCheck() {
+    const removeStageButton = document.getElementById("removeStageButton");
+    const removeCharacterButton = document.getElementById("removeCharacterButton");
     if ((y === 13) || ((y - 13)/2 === x)) {
         removeCharacterButton.disabled = true;
         if ((x === 0) || ((y - 13)/2 !== x)) {
@@ -196,6 +198,8 @@ export function removeButtonsCheck() {
 // }
 
 export function stageAndCharacterCheck(){
+    const stageButton = document.getElementById("stageButton");
+    const characterButton = document.getElementById("characterButton");
     enableButtons();
     // This will check if either the all the characters or stages have been selected and will disable the corresponding button(s).
     if (y === 47 && x === 13) {
