@@ -1,10 +1,15 @@
 import './PickStage.css'
 import { x, stageList, i, disableButtons, randomStageSound, characterList, stageAndCharacterCheck, selectedStages, newStageList, maxTimer, minTimer } from './JSPlaceholder'
 import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+// import { isActive } from './actions';
+import { inactive, stageListData } from './redux/stageList';
 
 // export let stageButton = document.getElementById('stageButton');
 
 const PickStage = (props) => {
+    const { stageListValue } = useSelector((state) => state.stageList);
+    const dispatch = useDispatch();
     
     let headerStages = document.getElementById('headerStages');
     // const { handleStageSelection } = props;
@@ -13,14 +18,19 @@ const PickStage = (props) => {
     const runInitialButtonCheck = () => {
         disableStageButton();
     }
-    useEffect(() => {
-        runInitialButtonCheck()
-    });
+    // useEffect(() => {
+    //     runInitialButtonCheck()
+    // });
   // const handleClick = () => {
   //   console.log("Yes")
   //   handleStageSelection();
   // }
 //   disableStageButton();
+
+const activeStages = Object.keys(stageListData)
+.filter(index => stageListData[index][Object.keys(stageListData[index])[0]][0].isActive)
+.map(index => Object.keys(stageListData[index])[0]);
+
   const handleStageSelection = () => {
     disableButtons();
     randomStageSound();
@@ -28,7 +38,8 @@ const PickStage = (props) => {
     // Thought about changing the two function timers into the same one, but feel there are too many different elements in the two.
     function stageTimer(min, max) {
         let intervalHandle = setInterval(function() {
-            headerStages.textContent = stageList[i++ % stageList.length]["stage"];
+            let i = 0;
+            headerStages.textContent = activeStages[i++ % stageList.length]["stage"];
         }, 60);
         var rand = Math.floor(Math.random() * (max - min + 1) + min); //Generate Random number between min - max
         console.log(rand / 2 + ' seconds');
@@ -80,7 +91,9 @@ const PickStage = (props) => {
     <>
       <header>Stage Picker</header>
       <h1 id='headerStages'>?</h1>
-      <button onClick={handleStageSelection} className="button" id="stageButton" >Start</button>
+      {/* <h1>Swamp stage is active: {stageListData[1].isActive.toString()}</h1> */}
+      {/* <button onClick={() => dispatch(inactive())} className="button" id="stageButton" >Start</button> */}
+      <button onClick={() => handleStageSelection()} className="button" id="stageButton" >Start</button>
     </>
   )
 };

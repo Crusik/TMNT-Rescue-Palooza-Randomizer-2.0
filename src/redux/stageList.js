@@ -1,100 +1,73 @@
-// import { useState } from "react";
+import { createSlice } from "@reduxjs/toolkit";
 
-// const [characterList, setCharacterList] = useState([
-//     {
-//       id: 1,
-//       character: "Don",
-//       isActive: true,
-//       count: 0
-//     },
-//     {
-//       id: 2,
-//       character: "Leo",
-//       isActive: true,
-//       count: 0
-//     },
-//     {
-//       id: 3,
-//       character: "Mikey",
-//       isActive: true,
-//       count: 0
-//     },
-//     {
-//       id: 4,
-//       character: "Raph",
-//       isActive: true,
-//       count: 0
+// export const stageListSlice = createSlice({
+//     name: "stageList",
+//     initialState: {
+//         value: stageList
+//     }
+// })
 
-      
-//     },
-//   ])
-
-export const characters = (state = characterList, action) => {
-    switch (action.type) {
-        case 'ISACTIVE':
-            return characterList.isActive = true;
-        case 'ISINACTIVE':
-            return characterList.isActive = false;
-        default:
-            return state;
-    }
-}
-
-export const stageList = [
+// Will run a forEach when changing the isActive state on each stage. When the stage is "isActive=true" the characters will all be the opposite.
+export const stageListData = [
     {
-        stage: "Default",
-        characters: [
-            {
-                id: 0,
-                character: "Don",
-                isActive: true,
-                count: 0
-            },
-            {
-                id: 1,
-                character: "Leo",
-                isActive: true,
-                count: 0
-            },
-            {
-                id: 2,
-                character: "Mikey",
-                isActive: true,
-                count: 0
-            },
-            {
-                id: 3,
-                character: "Raph",
-                isActive: true,
-                count: 0
-            },
-        ]
+        "Default": [{
+            isActive: false,
+            characters: [
+                {
+                    id: 0,
+                    character: "Don",
+                    isActive: true,
+                    count: 0
+                },
+                {
+                    id: 1,
+                    character: "Leo",
+                    isActive: true,
+                    count: 0
+                },
+                {
+                    id: 2,
+                    character: "Mikey",
+                    isActive: true,
+                    count: 0
+                },
+                {
+                    id: 3,
+                    character: "Raph",
+                    isActive: true,
+                    count: 0
+                }
+            ]
+        }]
     },
     {
-        stage: "April's",
-        characters: [
-            {
-                id: 4,
-                character: "April",
-                isActive: false,
-                count: 0
-            },
-            {
-                id: 5,
-                character: "Bebop",
-                isActive: false,
-                count: 0
-            },
-            {
-                id: 6,
-                character: "Rocksteady",
-                isActive: false,
-                count: 0
-            }
-        ]
+        "April's": [{
+            isActive: true,
+            characters: [
+                {
+                    id: 4,
+                    character: "April",
+                    isActive: false,
+                    count: 0
+                },
+                {
+                    id: 5,
+                    character: "Bebop",
+                    isActive: false,
+                    count: 0
+                },
+                {
+                    id: 6,
+                    character: "Rocksteady",
+                    isActive: false,
+                    count: 0
+                }
+            ]
+        }]
     },
     {
         stage: "Swamp",
+        isActive: true,
         characters: [
             {
                 id: 7,
@@ -130,6 +103,7 @@ export const stageList = [
     },
     {    
         stage: "Beach",
+        isActive: true,
         characters: [
             {
                 id: 12,
@@ -147,6 +121,7 @@ export const stageList = [
     },
     {
         stage: "Sewer",
+        isActive: true,
         characters: [
             {
                 id: 14,
@@ -164,6 +139,7 @@ export const stageList = [
     },
     {
         stage: "Van",
+        isActive: true,
         characters: [
             {
                 id: 16,
@@ -187,6 +163,7 @@ export const stageList = [
     },
     {
         stage: "Dim.X",
+        isActive: true,
         characters: [
             {
                 id: 19,
@@ -228,6 +205,7 @@ export const stageList = [
     },
     {
         stage: "Dojo",
+        isActive: true,
         characters: [
             {
                 id: 25,
@@ -263,6 +241,7 @@ export const stageList = [
     },
     {
         stage: "Channel 6",
+        isActive: true,
         characters: [
             {
                 id: 30,
@@ -298,6 +277,7 @@ export const stageList = [
     },
     {
         stage: "Ship",
+        isActive: true,
         characters: [
             {
                 id: 35,
@@ -327,6 +307,7 @@ export const stageList = [
     },
     {
         stage: "Park",
+        isActive: true,
         characters: [
             {
                 id: 39,
@@ -350,6 +331,7 @@ export const stageList = [
     },
     {
         stage: "Street",
+        isActive: true,
         characters: [
             {
                 id: 42,
@@ -373,6 +355,7 @@ export const stageList = [
     },
     {
         stage: "Rooftop",
+        isActive: true,
         characters: [
             {
                 id: 45,
@@ -395,32 +378,74 @@ export const stageList = [
         ]
     },
     {
-        stage: "Construction",
-        characters: [
-            {
-                id: 48,
-                character: "Muckman",
-                isActive: false,
-                count: 0
-            },
-            {
-                id: 49,
-                character: "Zach",
-                isActive: false,
-                count: 0
-            },
-            {
-                id: 50,
-                character: "Tokka",
-                isActive: false,
-                count: 0
-            },
-            {
-                id: 51,
-                character: "Rahzar",
-                isActive: false,
-                count: 0
-            }
-        ]
-    },
+        "Construction": [{
+            isActive: true,
+            characters: [
+                {
+                    id: 48,
+                    character: "Muckman",
+                    isActive: false,
+                    count: 0
+                },
+                {
+                    id: 49,
+                    character: "Zach",
+                    isActive: false,
+                    count: 0
+                },
+                {
+                    id: 50,
+                    character: "Tokka",
+                    isActive: false,
+                    count: 0
+                },
+                {
+                    id: 51,
+                    character: "Rahzar",
+                    isActive: false,
+                    count: 0
+                }
+            ]
+        }]
+    }
 ]
+
+export const stageListSlice = createSlice({
+    name: "stageList",
+    initialState: {
+        stageListIsActiveValue: stageListData[1][Object.keys(stageListData[1])[0]][0].isActive
+    },
+    reducers: {
+        inactive: (state) => {
+            console.log(state.stageListIsActiveValue)
+            state.stageListIsActiveValue = false;
+            console.log(state.stageListIsActiveValue)
+        },
+        active: (state) => {
+            console.log(state.stageListIsActiveValue)
+            state.stageListIsActiveValue = true;
+            console.log(state.stageListIsActiveValue)
+        }
+    }
+})
+
+// export let i = 0;
+
+const activeStages = Object.keys(stageListData)
+    .filter(index => stageListData[index][Object.keys(stageListData[index])[0]][0].isActive)
+    .map(index => Object.keys(stageListData[index])[0]);
+
+export const { inactive, active } = stageListSlice.actions;
+
+export default stageListSlice.reducer;
+
+// export const charactersReducer = (state = characterList, action) => {
+//     switch (action.type) {
+//         case 'ISACTIVE':
+//             return characterList.isActive = true;
+//         case 'ISINACTIVE':
+//             return characterList.isActive = false;
+//         default:
+//             return state;
+//     }
+// }

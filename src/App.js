@@ -1,7 +1,8 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import './App.scss';
 import Sidebar from './Sidebar';
 import Stages from './Stages';
+// import { useSelector } from 'react-redux';
 // import stageList from './StageList';
 // import { handleStageSelection } from './JSPlaceholder';
 
@@ -15,63 +16,64 @@ const App = () => {
   //   }
   // }
 
-  // const []
-  const [x, setX] = useState(0); // Assuming x is a state value
-  let [y, setY] = useState(13); // Assuming y is a state value
+  // const { stageListValue } = useSelector(state => state.stageList)
 
-  const disableStageButton = () => {
-    if (y < 15) {
-      document.getElementById('stageButton').disabled = true;
-      removeButtonsCheck();
-    }
-  };
+  // const [x, setX] = useState(0);
+  // let [y, setY] = useState(13);
 
-  const removeButtonsCheck = () => {
-    const removeCharacterButton = document.getElementById('removeCharacterButton');
-    const removeStageButton = document.getElementById('removeStageButton');
+  // const disableStageButton = () => {
+  //   if (y < 15) {
+  //     document.getElementById('stageButton').disabled = true;
+  //     removeButtonsCheck();
+  //   }
+  // };
 
-    if (y === 13 || (y - 13) / 2 === x) {
-      removeCharacterButton.disabled = true;
-      if (x === 0 || (y - 13) / 2 !== x) {
-        removeStageButton.disabled = true;
-      } else {
-        return;
-      }
-    } else if (x === 0 || (y - 13) / 2 !== x) {
-      removeStageButton.disabled = true;
-    } else {
-      removeCharacterButton.disabled = false;
-      removeStageButton.disabled = false;
-    }
-  };
+  // const removeButtonsCheck = () => {
+  //   const removeCharacterButton = document.getElementById('removeCharacterButton');
+  //   const removeStageButton = document.getElementById('removeStageButton');
 
-  const [characterList, setCharacterList] = useState([
-    {
-      id: 1,
-      character: "Don",
-      isActive: true,
-      count: 0
-    },
-    {
-      id: 2,
-      character: "Leo",
-      isActive: true,
-      count: 0
-    },
-    {
-      id: 3,
-      character: "Mikey",
-      isActive: true,
-      count: 0
-    },
-    {
-      id: 4,
-      character: "Raph",
-      isActive: true,
-      count: 0
+  //   if (y === 13 || (y - 13) / 2 === x) {
+  //     removeCharacterButton.disabled = true;
+  //     if (x === 0 || (y - 13) / 2 !== x) {
+  //       removeStageButton.disabled = true;
+  //     } else {
+  //       return;
+  //     }
+  //   } else if (x === 0 || (y - 13) / 2 !== x) {
+  //     removeStageButton.disabled = true;
+  //   } else {
+  //     removeCharacterButton.disabled = false;
+  //     removeStageButton.disabled = false;
+  //   }
+  // };
+
+  // const [characterList, setCharacterList] = useState([
+  //   {
+  //     id: 1,
+  //     character: "Don",
+  //     isActive: true,
+  //     count: 0
+  //   },
+  //   {
+  //     id: 2,
+  //     character: "Leo",
+  //     isActive: true,
+  //     count: 0
+  //   },
+  //   {
+  //     id: 3,
+  //     character: "Mikey",
+  //     isActive: true,
+  //     count: 0
+  //   },
+  //   {
+  //     id: 4,
+  //     character: "Raph",
+  //     isActive: true,
+  //     count: 0
       
-    },
-  ])
+  //   },
+  // ])
   // This doesn't work as needed. Need 
   // const handleStageSelection = () => {
   //   console.log("yesssss")
@@ -81,10 +83,10 @@ const App = () => {
 
   return (
       <div className='app'>
-          <Sidebar x={x} y={y} setY={setY} setX={setX} characterList={characterList} setCharacterList={setCharacterList} disableStageButton={disableStageButton}/>
+          <Sidebar/>
           {/* <Sidebar handleStageSelection={handleStageSelection} characterList={characterList} setCharacterList={setCharacterList} />
           <Stages  handleStageSelection={handleStageSelection} characterList={characterList} setCharacterList={setCharacterList} /> */}
-          <Stages characterList={characterList} setCharacterList={setCharacterList} />
+          <Stages/>
       </div>
     );
 }

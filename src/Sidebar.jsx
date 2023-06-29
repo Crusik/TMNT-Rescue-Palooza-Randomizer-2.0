@@ -4,8 +4,12 @@ import PickCharacter from './PickCharacter';
 import PickStage from './PickStage';
 import RemoveStage from './RemoveStage';
 import RemoveCharacter from './RemoveCharacter';
+import { useDispatch, useSelector } from 'react-redux';
+
 
 const Sidebar = (props) => {
+    // const { stageListValue } = useSelector(state => state.stageList);
+    // const dispatch = useDispatch();
 
     const { handleStageSelection } = props;
     const { disableStageButton } = props;
