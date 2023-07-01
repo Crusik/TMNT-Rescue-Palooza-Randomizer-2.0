@@ -13,6 +13,7 @@ let x = 0;
 
 const PickStage = (props) => {
     const stageListData = useSelector((state) => state.stageList.stageListData);
+    const stageIndex = useSelector((state) => state.stageIndex.stageIndexCount);
     // const stageIndexCount = useSelector((state) => state.stageIndex);
     const dispatch = useDispatch();
     
@@ -82,8 +83,8 @@ const PickStage = (props) => {
                                 // activeStages.splice(i, 1);
                         }
                     }
-                    if (x < 13) {
-                        x++;
+                    if (stageIndex < 13) {
+                        dispatch(increment());
                     }
                     removeStageFromSelection();
                     // stageAndCharacterCheck()
@@ -91,7 +92,7 @@ const PickStage = (props) => {
             }
             displayStage();
         }
-        if (x < 12) {
+        if (stageIndex < 12) {
             stageTimer(minTimer, maxTimer)
         } else {
             stageTimer(1, 1)

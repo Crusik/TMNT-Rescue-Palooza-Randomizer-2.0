@@ -23,43 +23,10 @@ const PickCharacter = (props) => {
         const minTimer = 10;
         const maxTimer = 20;
         let headerCharacters = document.getElementById('headerCharacters')
-        // let characterList = [
-        //     {
-        //     id: 1,
-        //     character: "Don",
-        //     isActive: true,
-        //     count: 0
-        //     },
-        //     {
-        //     id: 2,
-        //     character: "Leo",
-        //     isActive: true,
-        //     count: 0
-        //     },
-        //     {
-        //     id: 3,
-        //     character: "Mikey",
-        //     isActive: true,
-        //     count: 0
-        //     },
-        //     {
-        //     id: 4,
-        //     character: "Raph",
-        //     isActive: true,
-        //     count: 0
-            
-        //     },
-        // ]
-
-        // const incrementY = () => {
-        //     setY(prevY => prevY + 1);
-        // }
-        // let {characterList} = props;
         randomStageSound();
         disableButtons();
         function characterTimer(min, max) {
             let i = 0;
-            // console.log(y)
             // Indexes through the list of characters that are available, then stops at a random time to pick a character.
             let intervalHandle = setInterval(function() {
                 headerCharacters.textContent = activeCharacters[i++ % activeCharacters.length];
