@@ -36,7 +36,7 @@ const PickStage = (props) => {
     const handleStageSelection = () => {
         console.log(activeStages)
         let headerStages = document.getElementById('headerStages');
-        console.log(x)
+        console.log(stageIndex)
         const minTimer = 10;
         const maxTimer = 20;
         disableButtons();
@@ -57,7 +57,7 @@ const PickStage = (props) => {
             function displayStage() {
                 setTimeout(() => {
                     // Each Stage/Character combo Div has 1 Stage div per parent Div. Index + 1 for each time this is ran. This will move stage picker the next stage selection
-                    let stage = document.getElementById(x)
+                    let stage = document.getElementById(stageIndex)
                     stage.textContent = headerStages.textContent; // Whatever selected will display on the right side of the App in the proper section
                     function removeStageFromSelection() {
                         let selectedStage = [];
