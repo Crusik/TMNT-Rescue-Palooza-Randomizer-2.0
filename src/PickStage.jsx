@@ -6,10 +6,10 @@ import { useDispatch, useSelector } from 'react-redux';
 // import { inactive, stageListData, activeStages, active } from './redux/stageList';
 // import { deactivateStage } from './stageList';
 import { increment } from './redux/stageIndex';
-import { activateCharacter, deactivateStage } from './redux/stageList';
+import { deactivateStage } from './redux/stageList';
 
 // export let stageButton = document.getElementById('stageButton');
-let x = 0;
+// let x = 0;
 
 const PickStage = (props) => {
     const stageListData = useSelector((state) => state.stageList.stageListData);
@@ -71,16 +71,7 @@ const PickStage = (props) => {
                         for (let i = 0; i < stageListData.length; i++) {
                             if (stageListData[i].stage === selectedStage[0]) {
                             dispatch(deactivateStage({ stageId: i }));
-                            // dispatch(activateCharacter({ stageId: i }));
-                            //   break;
                             }
-                                // for (let j = 0; j < activeStages[i]["characters"].length; j++) {
-                                //     characterList.push(activeStages[i]["characters"][j]);
-                                // }
-                                // selectedStages.push(activeStages[i]);
-                            // newStageList.push(activeStages[i]);
-                            // console.log(`%c${JSON.stringify(newStageList)}`, "color: green")
-                                // activeStages.splice(i, 1);
                         }
                     }
                     if (stageIndex < 13) {
@@ -103,8 +94,6 @@ const PickStage = (props) => {
     <>
       <header>Stage Picker</header>
       <h1 id='headerStages'>?</h1>
-      {/* <h1>Swamp stage is active: {stageListData[1].isActive.toString()}</h1> */}
-      {/* <button onClick={() => dispatch(inactive())} className="button" id="stageButton" >Start</button> */}
       <button onClick={handleStageSelection} className="button" id="stageButton" >Start</button>
     </>
   )

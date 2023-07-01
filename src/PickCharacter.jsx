@@ -2,24 +2,20 @@ import React from 'react';
 import './Sidebar';
 import {randomStageSound, disableButtons, minTimer, maxTimer, stageAndCharacterCheck} from './JSPlaceholder'
 import { gsap } from 'gsap';
-import { useSelector } from 'react-redux';
-
-// export let characterButton = document.getElementById('characterButton');
+import { useDispatch, useSelector } from 'react-redux';
+import { incrementCharacterIndex } from './redux/characterIndex';
 
 const PickCharacter = (props) => {
-    // const { y } = props;
-    const { setY } = props;
-    const { x } = props;
+    const dispatch = useDispatch();
     const stageListData = useSelector((state) => state.stageList.stageListData);
+    const characterIndex = useSelector((state) => state.characterIndex.characterIndexCount);
     const activeCharacters = stageListData.flatMap(stage =>
         stage.characters
           .filter(character => character.isActive)
           .map(character => character.character)
         );
-    // const { setX } = props;
-    let y = 13;
     const handleCharacterSelection = () => {
-        console.log(y)
+        console.log(characterIndex)
         const minTimer = 10;
         const maxTimer = 20;
         let headerCharacters = document.getElementById('headerCharacters')
@@ -39,21 +35,18 @@ const PickCharacter = (props) => {
             function displayCharacter() {
                 setTimeout(() => {
                     // Selecting the character Divs which will start at 13 and increase +1 each time this is ran.
-                    let characters = document.getElementById(y);
+                    let characters = document.getElementById(characterIndex);
                     characters.textContent = headerCharacters.textContent;
                     // Animation via gsap
                     const tl = gsap.timeline({ defaults: { ease: "power0.out" } });
                     tl.to(characters, { autoAlpha: "1", duration: 1 });
                     tl.to(characters, { transform: "translateX(0)", duration: 1 }, "-=1");
-                    // Name of the next selected character
-                    // const randomCharacter = document.querySelector("#headerNames");
-                    // const randomPick = randomCharacter.textContent;
-                    if (y < 47){
-                        y++;
+                    if (characterIndex < 47){
+                        dispatch(incrementCharacterIndex());
                     }
                     // Allow the button to be pressed again for the next character once a character is picked.
                     // playVoice();
-                    stageAndCharacterCheck(x);
+                    stageAndCharacterCheck();
                 }, 500 * rand + 50)
             }
             displayCharacter();
