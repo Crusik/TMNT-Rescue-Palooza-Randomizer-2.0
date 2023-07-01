@@ -2,57 +2,67 @@ import React from 'react';
 import './Sidebar';
 import {randomStageSound, disableButtons, minTimer, maxTimer, stageAndCharacterCheck} from './JSPlaceholder'
 import { gsap } from 'gsap';
+import { useSelector } from 'react-redux';
 
 // export let characterButton = document.getElementById('characterButton');
 
 const PickCharacter = (props) => {
-    const { y } = props;
+    // const { y } = props;
     const { setY } = props;
     const { x } = props;
+    const stageListData = useSelector((state) => state.stageList.stageListData);
+    const activeCharacters = stageListData.flatMap(stage =>
+        stage.characters
+          .filter(character => character.isActive)
+          .map(character => character.character)
+        );
     // const { setX } = props;
+    let y = 13;
     const handleCharacterSelection = () => {
-        // console.log(y)
+        console.log(y)
+        const minTimer = 10;
+        const maxTimer = 20;
         let headerCharacters = document.getElementById('headerCharacters')
-        let characterList = [
-            {
-            id: 1,
-            character: "Don",
-            isActive: true,
-            count: 0
-            },
-            {
-            id: 2,
-            character: "Leo",
-            isActive: true,
-            count: 0
-            },
-            {
-            id: 3,
-            character: "Mikey",
-            isActive: true,
-            count: 0
-            },
-            {
-            id: 4,
-            character: "Raph",
-            isActive: true,
-            count: 0
+        // let characterList = [
+        //     {
+        //     id: 1,
+        //     character: "Don",
+        //     isActive: true,
+        //     count: 0
+        //     },
+        //     {
+        //     id: 2,
+        //     character: "Leo",
+        //     isActive: true,
+        //     count: 0
+        //     },
+        //     {
+        //     id: 3,
+        //     character: "Mikey",
+        //     isActive: true,
+        //     count: 0
+        //     },
+        //     {
+        //     id: 4,
+        //     character: "Raph",
+        //     isActive: true,
+        //     count: 0
             
-            },
-        ]
+        //     },
+        // ]
 
-        const incrementY = () => {
-            setY(prevY => prevY + 1);
-        }
+        // const incrementY = () => {
+        //     setY(prevY => prevY + 1);
+        // }
         // let {characterList} = props;
-        let i = 0;
         randomStageSound();
         disableButtons();
         function characterTimer(min, max) {
-            console.log(y)
+            let i = 0;
+            // console.log(y)
             // Indexes through the list of characters that are available, then stops at a random time to pick a character.
             let intervalHandle = setInterval(function() {
-                headerCharacters.textContent = characterList[i++ % characterList.length]["character"];
+                headerCharacters.textContent = activeCharacters[i++ % activeCharacters.length];
             }, 60);
             var rand = Math.floor(Math.random() * (max - min + 1) + min); //Generate Random number between min - max
             console.log(rand / 2 + ' seconds');
@@ -72,7 +82,7 @@ const PickCharacter = (props) => {
                     // const randomCharacter = document.querySelector("#headerNames");
                     // const randomPick = randomCharacter.textContent;
                     if (y < 47){
-                        incrementY();
+                        y++;
                     }
                     // Allow the button to be pressed again for the next character once a character is picked.
                     // playVoice();

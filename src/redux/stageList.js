@@ -7,10 +7,11 @@ import { createSlice } from "@reduxjs/toolkit";
 //     }
 // })
 
-// Will run a forEach when changing the isActive state on each stage. When the stage is "isActive=true" the characters will all be the opposite.
-export const stageListData = [
-    {
-        "Default": [{
+const initialState = {
+    stageListData: [
+        {
+            stageId: 0,
+            stage: "Default",
             isActive: false,
             characters: [
                 {
@@ -38,10 +39,10 @@ export const stageListData = [
                     count: 0
                 }
             ]
-        }]
-    },
-    {
-        "April's": [{
+        },
+        {
+            stageId: 1,
+            stage: "April's",
             isActive: true,
             characters: [
                 {
@@ -63,322 +64,333 @@ export const stageListData = [
                     count: 0
                 }
             ]
-        }]
-    },
-    {
-        stage: "Swamp",
-        isActive: true,
-        characters: [
-            {
-                id: 7,
-                character: "Genghis",
-                isActive: false,
-                count: 0
-            },
-            {
-                id: 8,
-                character: "Rasputin",
-                isActive: false,
-                count: 0
-            },
-            {
-                id: 9,
-                character: "Napoleon",
-                isActive: false,
-                count: 0
-            },
-            {
-                id: 10,
-                character: "Atilla",
-                isActive: false,
-                count: 0
-            },
-            {
-                id: 11,
-                character: "Leatherhead",
-                isActive: false,
-                count: 0
-            },
-        ]
-    },
-    {    
-        stage: "Beach",
-        isActive: true,
-        characters: [
-            {
-                id: 12,
-                character: "Ray Fillet",
-                isActive: false,
-                count: 0
-            },
-            {
-                id: 13,
-                character: "Armaggon",
-                isActive: false,
-                count: 0
-            }
-        ]
-    },
-    {
-        stage: "Sewer",
-        isActive: true,
-        characters: [
-            {
-                id: 14,
-                character: "Splinter",
-                isActive: false,
-                count: 0
-            },
-            {
-                id: 15,
-                character: "Rat King",
-                isActive: false,
-                count: 0
-            }
-        ]
-    },
-    {
-        stage: "Van",
-        isActive: true,
-        characters: [
-            {
-                id: 16,
-                character: "Mondo Gecko",
-                isActive: false,
-                count: 0
-            },
-            {
-                id: 17,
-                character: "Ace Duck",
-                isActive: false,
-                count: 0
-            },
-            {
-                id: 18,
-                character: "Chrome Dome",
-                isActive: false,
-                count: 0
-            }
-        ]
-    },
-    {
-        stage: "Dim.X",
-        isActive: true,
-        characters: [
-            {
-                id: 19,
-                character: "Dask",
-                isActive: false,
-                count: 0
-            },
-            {
-                id: 20,
-                character: "Kala",
-                isActive: false,
-                count: 0
-            },
-            {
-                id: 21,
-                character: "Zak",
-                isActive: false,
-                count: 0
-            },
-            {
-                id: 22,
-                character: "Anthrax",
-                isActive: false,
-                count: 0
-            },
-            {
-                id: 23,
-                character: "Traag",
-                isActive: false,
-                count: 0
-            },
-            {
-                id: 24,
-                character: "Granitor",
-                isActive: false,
-                count: 0
-            }
-        ]
-    },
-    {
-        stage: "Dojo",
-        isActive: true,
-        characters: [
-            {
-                id: 25,
-                character: "Aska",
-                isActive: false,
-                count: 0
-            },
-            {
-                id: 26,
-                character: "Usagi",
-                isActive: false,
-                count: 0
-            },
-            {
-                id: 27,
-                character: "Lotus",
-                isActive: false,
-                count: 0
-            },
-            {
-                id: 28,
-                character: "Tatsu",
-                isActive: false,
-                count: 0
-            },
-            {
-                id: 29,
-                character: "Shogun",
-                isActive: false,
-                count: 0
-            }
-        ]
-    },
-    {
-        stage: "Channel 6",
-        isActive: true,
-        characters: [
-            {
-                id: 30,
-                character: "Irma",
-                isActive: false,
-                count: 0
-            },
-            {
-                id: 31,
-                character: "Burne",
-                isActive: false,
-                count: 0
-            },
-            {
-                id: 32,
-                character: "Vernon",
-                isActive: false,
-                count: 0
-            },
-            {
-                id: 33,
-                character: "Baxter",
-                isActive: false,
-                count: 0
-            },
-            {
-                id: 34,
-                character: "Karai",
-                isActive: false,
-                count: 0
-            }
-        ]
-    },
-    {
-        stage: "Ship",
-        isActive: true,
-        characters: [
-            {
-                id: 35,
-                character: "Mona Lisa",
-                isActive: false,
-                count: 0
-            },
-            {
-                id: 36,
-                character: "Wingnut",
-                isActive: false,
-                count: 0
-            },
-            {
-                id: 37,
-                character: "Groundchuck",
-                isActive: false,
-                count: 0
-            },
-            {
-                id: 38,
-                character: "Dirtbag",
-                isActive: false,
-                count: 0
-            }
-        ]
-    },
-    {
-        stage: "Park",
-        isActive: true,
-        characters: [
-            {
-                id: 39,
-                character: "Hothead",
-                isActive: false,
-                count: 0
-            },
-            {
-                id: 40,
-                character: "Fugitoid",
-                isActive: false,
-                count: 0
-            },
-            {
-                id: 41,
-                character: "Tora",
-                isActive: false,
-                count: 0
-            }
-        ]
-    },
-    {
-        stage: "Street",
-        isActive: true,
-        characters: [
-            {
-                id: 42,
-                character: "Casey Jones",
-                isActive: false,
-                count: 0
-            },
-            {
-                id: 43,
-                character: "Tempestra",
-                isActive: false,
-                count: 0
-            },
-            {
-                id: 44,
-                character: "Triceraton",
-                isActive: false,
-                count: 0
-            }
-        ]
-    },
-    {
-        stage: "Rooftop",
-        isActive: true,
-        characters: [
-            {
-                id: 45,
-                character: "Metalhead",
-                isActive: false,
-                count: 0
-            },
-            {
-                id: 46,
-                character: "Slash",
-                isActive: false,
-                count: 0
-            },
-            {
-                id: 47,
-                character: "Mecaturtle",
-                isActive: false,
-                count: 0
-            }
-        ]
-    },
-    {
-        "Construction": [{
+        },
+        {
+            stageId: 2,
+            stage: "Swamp",
+            isActive: true,
+            characters: [
+                {
+                    id: 7,
+                    character: "Genghis",
+                    isActive: false,
+                    count: 0
+                },
+                {
+                    id: 8,
+                    character: "Rasputin",
+                    isActive: false,
+                    count: 0
+                },
+                {
+                    id: 9,
+                    character: "Napoleon",
+                    isActive: false,
+                    count: 0
+                },
+                {
+                    id: 10,
+                    character: "Atilla",
+                    isActive: false,
+                    count: 0
+                },
+                {
+                    id: 11,
+                    character: "Leatherhead",
+                    isActive: false,
+                    count: 0
+                },
+            ]
+        },
+        {    
+            stageId: 3,
+            stage: "Beach",
+            isActive: true,
+            characters: [
+                {
+                    id: 12,
+                    character: "Ray Fillet",
+                    isActive: false,
+                    count: 0
+                },
+                {
+                    id: 13,
+                    character: "Armaggon",
+                    isActive: false,
+                    count: 0
+                }
+            ]
+        },
+        {
+            stageId: 4,
+            stage: "Sewer",
+            isActive: true,
+            characters: [
+                {
+                    id: 14,
+                    character: "Splinter",
+                    isActive: false,
+                    count: 0
+                },
+                {
+                    id: 15,
+                    character: "Rat King",
+                    isActive: false,
+                    count: 0
+                }
+            ]
+        },
+        {
+            stageId: 5,
+            stage: "Van",
+            isActive: true,
+            characters: [
+                {
+                    id: 16,
+                    character: "Mondo Gecko",
+                    isActive: false,
+                    count: 0
+                },
+                {
+                    id: 17,
+                    character: "Ace Duck",
+                    isActive: false,
+                    count: 0
+                },
+                {
+                    id: 18,
+                    character: "Chrome Dome",
+                    isActive: false,
+                    count: 0
+                }
+            ]
+        },
+        {
+            stageId: 6,
+            stage: "Dim.X",
+            isActive: true,
+            characters: [
+                {
+                    id: 19,
+                    character: "Dask",
+                    isActive: false,
+                    count: 0
+                },
+                {
+                    id: 20,
+                    character: "Kala",
+                    isActive: false,
+                    count: 0
+                },
+                {
+                    id: 21,
+                    character: "Zak",
+                    isActive: false,
+                    count: 0
+                },
+                {
+                    id: 22,
+                    character: "Anthrax",
+                    isActive: false,
+                    count: 0
+                },
+                {
+                    id: 23,
+                    character: "Traag",
+                    isActive: false,
+                    count: 0
+                },
+                {
+                    id: 24,
+                    character: "Granitor",
+                    isActive: false,
+                    count: 0
+                }
+            ]
+        },
+        {
+            stageId: 7,
+            stage: "Dojo",
+            isActive: true,
+            characters: [
+                {
+                    id: 25,
+                    character: "Aska",
+                    isActive: false,
+                    count: 0
+                },
+                {
+                    id: 26,
+                    character: "Usagi",
+                    isActive: false,
+                    count: 0
+                },
+                {
+                    id: 27,
+                    character: "Lotus",
+                    isActive: false,
+                    count: 0
+                },
+                {
+                    id: 28,
+                    character: "Tatsu",
+                    isActive: false,
+                    count: 0
+                },
+                {
+                    id: 29,
+                    character: "Shogun",
+                    isActive: false,
+                    count: 0
+                }
+            ]
+        },
+        {
+            stageId: 8,
+            stage: "Channel 6",
+            isActive: true,
+            characters: [
+                {
+                    id: 30,
+                    character: "Irma",
+                    isActive: false,
+                    count: 0
+                },
+                {
+                    id: 31,
+                    character: "Burne",
+                    isActive: false,
+                    count: 0
+                },
+                {
+                    id: 32,
+                    character: "Vernon",
+                    isActive: false,
+                    count: 0
+                },
+                {
+                    id: 33,
+                    character: "Baxter",
+                    isActive: false,
+                    count: 0
+                },
+                {
+                    id: 34,
+                    character: "Karai",
+                    isActive: false,
+                    count: 0
+                }
+            ]
+        },
+        {
+            stageId: 9,
+            stage: "Ship",
+            isActive: true,
+            characters: [
+                {
+                    id: 35,
+                    character: "Mona Lisa",
+                    isActive: false,
+                    count: 0
+                },
+                {
+                    id: 36,
+                    character: "Wingnut",
+                    isActive: false,
+                    count: 0
+                },
+                {
+                    id: 37,
+                    character: "Groundchuck",
+                    isActive: false,
+                    count: 0
+                },
+                {
+                    id: 38,
+                    character: "Dirtbag",
+                    isActive: false,
+                    count: 0
+                }
+            ]
+        },
+        {
+            stageId: 10,
+            stage: "Park",
+            isActive: true,
+            characters: [
+                {
+                    id: 39,
+                    character: "Hothead",
+                    isActive: false,
+                    count: 0
+                },
+                {
+                    id: 40,
+                    character: "Fugitoid",
+                    isActive: false,
+                    count: 0
+                },
+                {
+                    id: 41,
+                    character: "Tora",
+                    isActive: false,
+                    count: 0
+                }
+            ]
+        },
+        {
+            stageId: 11,
+            stage: "Street",
+            isActive: true,
+            characters: [
+                {
+                    id: 42,
+                    character: "Casey Jones",
+                    isActive: false,
+                    count: 0
+                },
+                {
+                    id: 43,
+                    character: "Tempestra",
+                    isActive: false,
+                    count: 0
+                },
+                {
+                    id: 44,
+                    character: "Triceraton",
+                    isActive: false,
+                    count: 0
+                }
+            ]
+        },
+        {
+            stageId: 12,
+            stage: "Rooftop",
+            isActive: true,
+            characters: [
+                {
+                    id: 45,
+                    character: "Metalhead",
+                    isActive: false,
+                    count: 0
+                },
+                {
+                    id: 46,
+                    character: "Slash",
+                    isActive: false,
+                    count: 0
+                },
+                {
+                    id: 47,
+                    character: "Mecaturtle",
+                    isActive: false,
+                    count: 0
+                }
+            ]
+        },
+        {
+            stageId: 13,
+            stage: "Construction",
             isActive: true,
             characters: [
                 {
@@ -406,36 +418,78 @@ export const stageListData = [
                     count: 0
                 }
             ]
-        }]
-    }
-]
+        }
+    ],
+}
 
 export const stageListSlice = createSlice({
     name: "stageList",
-    initialState: {
-        stageListIsActiveValue: stageListData[1][Object.keys(stageListData[1])[0]][0].isActive
-    },
+    initialState,
     reducers: {
-        inactive: (state) => {
-            console.log(state.stageListIsActiveValue)
-            state.stageListIsActiveValue = false;
-            console.log(state.stageListIsActiveValue)
+        // This activateStage may not work correctly
+        activateStage: (state, action) => {
+            const { stageId } = action.payload;
+            state.stageListData = state.stageListData.map((stage, index) => {
+              if (index === stageId) {
+                return {
+                  ...stage,
+                  isActive: true
+                };
+              }
+              return stage;
+            });
         },
-        active: (state) => {
-            console.log(state.stageListIsActiveValue)
-            state.stageListIsActiveValue = true;
-            console.log(state.stageListIsActiveValue)
-        }
+        deactivateStage: (state, action) => {
+            const { stageId } = action.payload;
+            state.stageListData = state.stageListData.map((stage, index) => {
+              if (index === stageId) {
+                // Deactivate the stage
+                const updatedStage = {
+                  ...stage,
+                  isActive: false
+                };
+          
+                // Activate characters of the stage
+                updatedStage.characters.forEach(character => {
+                  character.isActive = true;
+                });
+          
+                return updatedStage;
+              }
+              return stage;
+            });
+          },
+        // activateCharacter: (state, action) => {
+        //     const { stageId } = action.payload;
+        //     const stage = state.stageListData.find(stage => stage.id === stageId);
+        //     if (stage) {
+        //       stage.characters.forEach(character => {
+        //         character.isActive = true;
+        //       });
+        //     }
+        //   },
+      
+          deactivateCharacter: (state, action) => {
+            const { stageId } = action.payload;
+            const stage = state.stageListData.find(stage => stage.id === stageId);
+            if (stage) {
+              stage.characters.forEach(character => {
+                character.isActive = false;
+              });
+            }
+        },
     }
 })
 
 // export let i = 0;
 
-const activeStages = Object.keys(stageListData)
-    .filter(index => stageListData[index][Object.keys(stageListData[index])[0]][0].isActive)
-    .map(index => Object.keys(stageListData[index])[0]);
+// export const activeStages = Object.keys(stageListData)
+//     .filter(index => stageListData[index][Object.keys(stageListData[index])[0]][0].isActive)
+//     .map(index => Object.keys(stageListData[index])[0]);
 
-export const { inactive, active } = stageListSlice.actions;
+// const stageListSliceInstance = stageListSlice(1);
+
+export const { deactivateStage, activateStage, activateCharacter, deactivateCharacter } = stageListSlice.actions;
 
 export default stageListSlice.reducer;
 
