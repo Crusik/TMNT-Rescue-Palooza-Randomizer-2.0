@@ -7,7 +7,7 @@ import { incrementCharacterIndex } from './redux/characterIndex';
 import { enableButton, disableBothButtons } from './redux/buttonstatus';
 import { deactivateCharacter, incrementCount } from './redux/stageList';
 
-const PickCharacter = (props) => {
+const PickCharacter = () => {
   const dispatch = useDispatch();
   const stageListData = useSelector((state) => state.stageList.stageListData);
   const characterIndexRef = useRef(useSelector((state) => state.characterIndex.characterIndexCount));
@@ -72,17 +72,18 @@ const PickCharacter = (props) => {
         if (selectedCharacter) {
           // Dispatch an action to increment the count of the selected character
           dispatch(incrementCount(selectedCharacter.character));
-        }
+          // Dispatch an action to deactivate the character
+          dispatch(deactivateCharacter(selectedCharacter.character));
         if (characterIndex < 47) {
           dispatch(incrementCharacterIndex());
           // The following is to add to a reference of characterIndex that is local to this function. Since this function is ran twice in a row, the characterIndex is updated, but
           // the function cannot access it while the runTwice() function is still running on the second func() call.
           characterIndexRef.current += 1;
+          }
         }
       }, 500 * rand + 50);
     }
     displayCharacter();
-    dispatch(deactivateCharacter())
   }
 
     characterTimer(minTimer, maxTimer);

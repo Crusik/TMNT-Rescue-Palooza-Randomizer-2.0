@@ -11,25 +11,25 @@ const initialState = {
                     id: 0,
                     character: "Don",
                     isActive: true,
-                    count: 0
+                    count: 1
                 },
                 {
                     id: 1,
                     character: "Leo",
                     isActive: true,
-                    count: 0
+                    count: 1
                 },
                 {
                     id: 2,
                     character: "Mikey",
                     isActive: true,
-                    count: 0
+                    count: 1
                 },
                 {
                     id: 3,
                     character: "Raph",
                     isActive: true,
-                    count: 0
+                    count: 1
                 }
             ]
         },
@@ -459,18 +459,30 @@ export const stageListSlice = createSlice({
         },
       
         deactivateCharacter: (state, action) => {
-            const { stageId, characterId } = action.payload;
-            const stage = state.stageListData.find(stage => stage.stageId === stageId);
-            if (stage) {
-                const character = stage.characters.find(character => character.id === characterId);
-                if (character) {
-                    character.count += 1;
-                        if (character.count === 3) {
+            const selectedCharacter = action.payload;
+            state.stageListData.forEach(stage => {
+                stage.characters.forEach(character => {
+                    if (character.character === selectedCharacter) {
+                        if(character.count >= 3) {
                             character.isActive = false;
                         }
-                }
-            }
+                    }
+                });
+            });
         },
+        // deactivateCharacter: (state, action) => {
+        //     const { stageId, characterId } = action.payload;
+        //     const stage = state.stageListData.find(stage => stage.stageId === stageId);
+        //     if (stage) {
+        //         const character = stage.characters.find(character => character.id === characterId);
+        //         if (character) {
+        //             character.count += 1;
+        //                 if (character.count === 3) {
+        //                     character.isActive = false;
+        //                 }
+        //         }
+        //     }
+        // },
 
         incrementCount: (state, action) => {
             const selectedCharacter = action.payload;
