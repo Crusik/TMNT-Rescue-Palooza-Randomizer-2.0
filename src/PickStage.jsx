@@ -1,5 +1,5 @@
 import './PickStage.css'
-import { stageList, i, disableButtons, randomStageSound, characterList, stageAndCharacterCheck, selectedStages, newStageList, maxTimer, minTimer } from './JSPlaceholder'
+import { randomStageSound, maxTimer, minTimer } from './JSPlaceholder'
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // import { isActive } from './actions';
@@ -7,28 +7,20 @@ import { useDispatch, useSelector } from 'react-redux';
 // import { deactivateStage } from './stageList';
 import { increment } from './redux/stageIndex';
 import { deactivateStage } from './redux/stageList';
+import { disableButton, enableButton, disableBothButtons  } from './redux/buttonstatus';
 
 // export let stageButton = document.getElementById('stageButton');
 // let x = 0;
 
-const PickStage = (props) => {
+const PickStage = () => {
     const stageListData = useSelector((state) => state.stageList.stageListData);
     const stageIndex = useSelector((state) => state.stageIndex.stageIndexCount);
+    const stageButtonStatus = useSelector((state) => state.buttonStatus.stageButton);
     // const stageIndexCount = useSelector((state) => state.stageIndex);
     const dispatch = useDispatch();
-    
-    // const deactivateStage = (stageId) => {
-        //     dispatch(deactivateStage({ stageId }));
-        // };
-        // const { handleStageSelection } = props;
-        // const {disableStageButton} = props;
-        
-        // const runInitialButtonCheck = () => {
-            //     disableStageButton();
-            // }
-            const activeStages = stageListData
-            .filter(stage => stage.isActive)
-            .map(stage => stage.stage);
+    const activeStages = stageListData
+    .filter(stage => stage.isActive)
+    .map(stage => stage.stage);
             
             
             
@@ -39,7 +31,8 @@ const PickStage = (props) => {
         console.log(stageIndex)
         const minTimer = 10;
         const maxTimer = 20;
-        disableButtons();
+        // disableButtons();
+        dispatch(disableBothButtons());
         randomStageSound();
         // Timer for the random picker. The timer will be random within a set range "min-max"
         // Thought about changing the two function timers into the same one, but feel there are too many different elements in the two.
@@ -61,11 +54,8 @@ const PickStage = (props) => {
                     stage.textContent = headerStages.textContent; // Whatever selected will display on the right side of the App in the proper section
                     function removeStageFromSelection() {
                         let selectedStage = [];
-                        // const randomStage = document.querySelector("#headerStages");
                         const randomPick = headerStages.textContent;
                         selectedStage.push(randomPick);
-                        console.log(activeStages)
-                        console.log(selectedStage)
                         // This will iterate through the stageList object, then compare whatever the "randomPick" is with the Object. For the Object stage:("value") that is equal, then
                         // it will iterate through the array that is within the array of Ojects and then push "this" ("characters") onto the "characterList" for the available characters.
                         for (let i = 0; i < stageListData.length; i++) {
@@ -78,7 +68,7 @@ const PickStage = (props) => {
                         dispatch(increment());
                     }
                     removeStageFromSelection();
-                    // stageAndCharacterCheck()
+                    dispatch(enableButton({ buttonId: "characterButton" }));
                 }, 500 * rand + 50);
             }
             displayStage();
@@ -94,7 +84,8 @@ const PickStage = (props) => {
     <>
       <header>Stage Picker</header>
       <h1 id='headerStages'>?</h1>
-      <button onClick={handleStageSelection} className="button" id="stageButton" >Start</button>
+      {/* <button onClick={handleStageSelection} className="button" id="stageButton" >Start</button> */}
+      <button onClick={handleStageSelection} disabled={stageButtonStatus === "disabled"} className="button" id="stageButton" >Start</button>
     </>
   )
 };

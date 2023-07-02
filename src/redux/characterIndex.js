@@ -7,7 +7,7 @@ export const characterIndexSlice = createSlice({
     },
     reducers: {
         incrementCharacterIndex: (state) => {
-            state.characterIndexCount++;
+                state.characterIndexCount++;
         },
         decrementCharacterIndex: (state) => {
             state.characterIndexCount--;

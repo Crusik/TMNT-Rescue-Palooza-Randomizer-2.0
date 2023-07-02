@@ -1,12 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// export const stageListSlice = createSlice({
-//     name: "stageList",
-//     initialState: {
-//         value: stageList
-//     }
-// })
-
 const initialState = {
     stageListData: [
         {
