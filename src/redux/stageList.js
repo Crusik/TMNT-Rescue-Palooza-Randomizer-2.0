@@ -415,6 +415,11 @@ const initialState = {
     ],
 }
 
+// export const incrementCount = (selectedCharacter) => ({
+//     type: 'stageList/incrementCount',
+//     payload: selectedCharacter,
+// });
+
 export const stageListSlice = createSlice({
     name: "stageList",
     initialState,
@@ -451,48 +456,36 @@ export const stageListSlice = createSlice({
               }
               return stage;
             });
-          },
-        // activateCharacter: (state, action) => {
-        //     const { stageId } = action.payload;
-        //     const stage = state.stageListData.find(stage => stage.id === stageId);
-        //     if (stage) {
-        //       stage.characters.forEach(character => {
-        //         character.isActive = true;
-        //       });
-        //     }
-        //   },
+        },
       
-          deactivateCharacter: (state, action) => {
-            const { stageId } = action.payload;
-            const stage = state.stageListData.find(stage => stage.id === stageId);
+        deactivateCharacter: (state, action) => {
+            const { stageId, characterId } = action.payload;
+            const stage = state.stageListData.find(stage => stage.stageId === stageId);
             if (stage) {
-              stage.characters.forEach(character => {
-                character.isActive = false;
-              });
+                const character = stage.characters.find(character => character.id === characterId);
+                if (character) {
+                    character.count += 1;
+                        if (character.count === 3) {
+                            character.isActive = false;
+                        }
+                }
             }
+        },
+
+        incrementCount: (state, action) => {
+            const selectedCharacter = action.payload;
+            state.stageListData.forEach(stage => {
+                stage.characters.forEach(character => {
+                    if (character.character === selectedCharacter) {
+                    character.count += 1;
+                    }
+                });
+            });
         },
     }
 })
 
-// export let i = 0;
 
-// export const activeStages = Object.keys(stageListData)
-//     .filter(index => stageListData[index][Object.keys(stageListData[index])[0]][0].isActive)
-//     .map(index => Object.keys(stageListData[index])[0]);
-
-// const stageListSliceInstance = stageListSlice(1);
-
-export const { deactivateStage, activateStage, activateCharacter, deactivateCharacter } = stageListSlice.actions;
+export const { deactivateStage, activateStage, activateCharacter, deactivateCharacter, incrementCount } = stageListSlice.actions;
 
 export default stageListSlice.reducer;
-
-// export const charactersReducer = (state = characterList, action) => {
-//     switch (action.type) {
-//         case 'ISACTIVE':
-//             return characterList.isActive = true;
-//         case 'ISINACTIVE':
-//             return characterList.isActive = false;
-//         default:
-//             return state;
-//     }
-// }

@@ -1,10 +1,11 @@
 import React, { useRef } from 'react';
 import './Sidebar';
-import { randomStageSound, disableButtons, stageAndCharacterCheck } from './JSPlaceholder';
+import { randomStageSound } from './JSPlaceholder';
 import { gsap } from 'gsap';
 import { useDispatch, useSelector } from 'react-redux';
 import { incrementCharacterIndex } from './redux/characterIndex';
-import { enableButton, disableButton, disableBothButtons } from './redux/buttonstatus';
+import { enableButton, disableBothButtons } from './redux/buttonstatus';
+import { deactivateCharacter, incrementCount } from './redux/stageList';
 
 const PickCharacter = (props) => {
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ const PickCharacter = (props) => {
       setTimeout(() => {
         if(stageIndex < 13){
           dispatch(enableButton({ buttonId: 'stageButton' }));
-          // This seems wrong, but it works because characterIndex is not updated until the function completes.
+          // This seems wrong, but it works because characterIndex is updated, but cannot be accessed until this function completes.
         } else if (characterIndex < 45) {
           dispatch(enableButton({ buttonId: 'characterButton' }));
         } else {
@@ -65,14 +66,24 @@ const PickCharacter = (props) => {
           const tl = gsap.timeline({ defaults: { ease: 'power0.out' } });
           tl.to(characters, { autoAlpha: '1', duration: 1 });
           tl.to(characters, { transform: 'translateX(0)', duration: 1 }, '-=1');
-          if (characterIndex < 47) {
-            dispatch(incrementCharacterIndex());
-            characterIndexRef.current = characterIndex + 1;
-          }
-        }, 500 * rand + 50);
-      }
-      displayCharacter();
+          const selectedCharacter = stageListData.flatMap(stage => stage.characters)
+          .find(character => character.character === headerCharacters.textContent);
+
+        if (selectedCharacter) {
+          // Dispatch an action to increment the count of the selected character
+          dispatch(incrementCount(selectedCharacter.character));
+        }
+        if (characterIndex < 47) {
+          dispatch(incrementCharacterIndex());
+          // The following is to add to a reference of characterIndex that is local to this function. Since this function is ran twice in a row, the characterIndex is updated, but
+          // the function cannot access it while the runTwice() function is still running on the second func() call.
+          characterIndexRef.current += 1;
+        }
+      }, 500 * rand + 50);
     }
+    displayCharacter();
+    dispatch(deactivateCharacter())
+  }
 
     characterTimer(minTimer, maxTimer);
   };
