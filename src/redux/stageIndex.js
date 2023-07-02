@@ -8,7 +8,7 @@ export const stageIndexSlice = createSlice({
     reducers: {
         increment: (state) => {
             state.stageIndexCount++;
-            console.log(state)
+            console.log(state.stageIndexCount)
         },
         decrement: (state) => {
             state.stageIndexCount--;

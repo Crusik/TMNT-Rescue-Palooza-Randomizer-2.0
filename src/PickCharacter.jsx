@@ -10,7 +10,9 @@ const PickCharacter = (props) => {
   const dispatch = useDispatch();
   const stageListData = useSelector((state) => state.stageList.stageListData);
   const characterIndexRef = useRef(useSelector((state) => state.characterIndex.characterIndexCount));
+  const characterIndex = useSelector((state) => state.characterIndex.characterIndexCount);
   const characterButtonStatus = useSelector((state) => state.buttonStatus.characterButton);
+  const stageIndex = useSelector((state) => state.stageIndex.stageIndexCount);
 
   const activeCharacters = stageListData.flatMap((stage) =>
     stage.characters.filter((character) => character.isActive).map((character) => character.character)
@@ -21,7 +23,14 @@ const PickCharacter = (props) => {
     setTimeout(() => {
       func();
       setTimeout(() => {
-        dispatch(enableButton({ buttonId: 'stageButton' }));
+        if(stageIndex < 13){
+          dispatch(enableButton({ buttonId: 'stageButton' }));
+          // This seems wrong, but it works because characterIndex is not updated until the function completes.
+        } else if (characterIndex < 45) {
+          dispatch(enableButton({ buttonId: 'characterButton' }));
+        } else {
+          // Run Cowabunga(). This might need to be changed to work properly.
+        }
       }, 10000);
     }, 10000);
   };
@@ -34,7 +43,7 @@ const PickCharacter = (props) => {
     const characterIndex = characterIndexRef.current;
     console.log(characterIndex);
     const minTimer = 10;
-    const maxTimer = 20;
+    const maxTimer = 18;
     let headerCharacters = document.getElementById('headerCharacters');
     randomStageSound();
     dispatch(disableBothButtons());
