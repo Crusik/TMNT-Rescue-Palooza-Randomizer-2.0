@@ -25,7 +25,7 @@ const PickCharacter = () => {
       setTimeout(() => {
         const filteredCharacters = activeCharacters.filter(character => character !== selectedCharacter.character);
         console.log(filteredCharacters)
-        func(filteredCharacters);
+        func(filteredCharacters, selectedCharacter);
         setTimeout(() => {
           if(stageIndex < 13){
             dispatch(enableButton({ buttonId: 'stageButton' }));
@@ -36,13 +36,14 @@ const PickCharacter = () => {
             // Run Cowabunga(). This might need to be changed to work properly.
           }
         }, 10000);
-        console.log(selectedCharacter.character)
       }, 1000);
     });
   };
 
   const handleRunTwice = () => {
-    runTwice(handleCharacterSelection);
+    runTwice((activeCharactersList, callback) => {
+      handleCharacterSelection(activeCharactersList, callback);
+    });
   };
 
   const handleCharacterSelection = (activeCharactersList, callback) => {
@@ -85,7 +86,9 @@ const PickCharacter = () => {
                 characterIndexRef.current += 1;
               }
             }
-            return callback(selectedCharacter);
+            if (typeof callback === 'function') {
+              callback(selectedCharacter);
+            }
           }, 500 * rand + 50);
       }
     displayCharacter();
