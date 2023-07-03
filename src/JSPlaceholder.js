@@ -335,18 +335,27 @@ export let headerCharacters = document.getElementById('headerCharacters')
 
 // let doubleTimer;
 
-export function runTwice(func) {
-    disableButtons()
-    func()
-    setTimeout(()=> {
-        disableButtons()
-        func()
-        setTimeout(()=> {
-            stageAndCharacterCheck();
-        }, 10000);
-    }, 10000)
-    // }, 500 * rand + 3000);
-}
+// export function runTwice(func) {
+//     func()
+//     setTimeout(()=> {
+//         func()
+//         setTimeout(()=> {
+//             dispatch(enableButton({ buttonId: "stageButton" }));
+//         }, 10000);
+//     }, 10000)
+// }
+// export function runTwice(func) {
+//     disableButtons()
+//     func()
+//     setTimeout(()=> {
+//         disableButtons()
+//         func()
+//         setTimeout(()=> {
+//             stageAndCharacterCheck();
+//         }, 10000);
+//     }, 10000)
+//     // }, 500 * rand + 3000);
+// }
 
 // runTwice(log)
 
