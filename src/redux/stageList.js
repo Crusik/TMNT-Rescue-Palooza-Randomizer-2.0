@@ -424,10 +424,14 @@ export const stageListSlice = createSlice({
             const { stageId } = action.payload;
             state.stageListData = state.stageListData.map((stage, index) => {
               if (index === stageId) {
-                return {
+                const updatedStage = {
                   ...stage,
                   isActive: true
                 };
+                updatedStage.characters.forEach(character => {
+                    character.isActive = false;
+                });
+                return updatedStage;
               }
               return stage;
             });
@@ -444,8 +448,7 @@ export const stageListSlice = createSlice({
                 // Activate characters of the stage
                 updatedStage.characters.forEach(character => {
                   character.isActive = true;
-                });
-          
+                });         
                 return updatedStage;
               }
               return stage;

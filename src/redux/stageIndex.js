@@ -12,6 +12,7 @@ export const stageIndexSlice = createSlice({
         },
         decrement: (state) => {
             state.stageIndexCount--;
+            console.log(state.stageIndexCount)
         }
     }
 })
