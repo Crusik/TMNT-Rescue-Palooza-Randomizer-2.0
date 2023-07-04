@@ -5,7 +5,7 @@ import { activateStage } from './redux/stageList';
 import { decrement } from './redux/stageIndex';
 import { enableButton, disableAllButtons  } from './redux/buttonstatus';
 
-function RemoveStage({ activeStages }) {
+function RemoveStage() {
 
   const removeStageButtonStatus = useSelector((state) => state.buttonStatus.removeStageButton);
   const stageListData = useSelector((state) => state.stageList.stageListData);
