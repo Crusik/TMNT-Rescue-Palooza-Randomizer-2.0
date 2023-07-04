@@ -419,7 +419,7 @@ export const stageListSlice = createSlice({
     name: "stageList",
     initialState,
     reducers: {
-        // This activateStage may not work correctly
+        
         activateStage: (state, action) => {
             const { stageId } = action.payload;
             state.stageListData = state.stageListData.map((stage, index) => {
@@ -436,6 +436,7 @@ export const stageListSlice = createSlice({
               return stage;
             });
         },
+
         deactivateStage: (state, action) => {
             const { stageId } = action.payload;
             state.stageListData = state.stageListData.map((stage, index) => {
@@ -467,19 +468,6 @@ export const stageListSlice = createSlice({
                 });
             });
         },
-        // deactivateCharacter: (state, action) => {
-        //     const { stageId, characterId } = action.payload;
-        //     const stage = state.stageListData.find(stage => stage.stageId === stageId);
-        //     if (stage) {
-        //         const character = stage.characters.find(character => character.id === characterId);
-        //         if (character) {
-        //             character.count += 1;
-        //                 if (character.count === 3) {
-        //                     character.isActive = false;
-        //                 }
-        //         }
-        //     }
-        // },
 
         incrementCount: (state, action) => {
             const selectedCharacter = action.payload;
@@ -491,6 +479,7 @@ export const stageListSlice = createSlice({
                 });
             });
         },
+
         decrementCharacterCount: (state, action) => {
             const removedCharacter = action.payload;
             state.stageListData.forEach(stage => {

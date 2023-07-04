@@ -45,6 +45,7 @@ const PickCharacter = () => {
   };
 
   const handleRunTwice = () => {
+    // Play Music
     runTwice((activeCharactersList, callback) => {
       handleCharacterSelection(activeCharactersList, callback);
     });

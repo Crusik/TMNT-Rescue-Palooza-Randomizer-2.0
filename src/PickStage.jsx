@@ -16,6 +16,7 @@ const PickStage = () => {
     .map(stage => stage.stage);
     
     const handleStageSelection = () => {
+        // Play Music
         console.log(activeStages)
         let headerStages = document.getElementById('headerStages');
         console.log(stageIndex)
