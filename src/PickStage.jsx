@@ -3,17 +3,13 @@ import { randomStageSound} from './JSPlaceholder'
 import { useDispatch, useSelector } from 'react-redux';
 import { increment } from './redux/stageIndex';
 import { deactivateStage } from './redux/stageList';
-import { disableButton, enableButton, disableBothButtons  } from './redux/buttonstatus';
+import { disableButton, enableButton, disableAllButtons  } from './redux/buttonstatus';
 
 const PickStage = ({ activeStages }) => {
     const stageListData = useSelector((state) => state.stageList.stageListData);
     const stageIndex = useSelector((state) => state.stageIndex.stageIndexCount);
     const stageButtonStatus = useSelector((state) => state.buttonStatus.stageButton);
-    // const stageIndexCount = useSelector((state) => state.stageIndex);
     const dispatch = useDispatch();
-    // const activeStages = stageListData
-    // .filter(stage => stage.isActive)
-    // .map(stage => stage.stage);
     
     const handleStageSelection = () => {
         console.log(activeStages)
@@ -21,11 +17,9 @@ const PickStage = ({ activeStages }) => {
         console.log(stageIndex)
         const minTimer = 10;
         const maxTimer = 20;
-        // disableButtons();
-        dispatch(disableBothButtons());
+        dispatch(disableAllButtons());
         randomStageSound();
         // Timer for the random picker. The timer will be random within a set range "min-max"
-        // Thought about changing the two function timers into the same one, but feel there are too many different elements in the two.
         function stageTimer(min, max) {
             let i = 0;
             let intervalHandle = setInterval(function() {
@@ -59,6 +53,7 @@ const PickStage = ({ activeStages }) => {
                     }
                     removeStageFromSelection();
                     dispatch(enableButton({ buttonId: "characterButton" }));
+                    dispatch(enableButton({ buttonId: "removeStageButton" }));
                 }, 500 * rand + 50);
             }
             displayStage();

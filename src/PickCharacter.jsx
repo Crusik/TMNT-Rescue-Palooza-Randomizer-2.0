@@ -4,7 +4,7 @@ import { randomStageSound } from './JSPlaceholder';
 import { gsap } from 'gsap';
 import { useDispatch, useSelector } from 'react-redux';
 import { incrementCharacterIndex } from './redux/characterIndex';
-import { enableButton, disableBothButtons } from './redux/buttonstatus';
+import { enableButton, disableAllButtons } from './redux/buttonstatus';
 import { deactivateCharacter, incrementCount } from './redux/stageList';
 
 const PickCharacter = () => {
@@ -27,10 +27,11 @@ const PickCharacter = () => {
         // console.log(filteredCharacters)
         func(filteredCharacters, selectedCharacter);
         setTimeout(() => {
-          if(stageIndex < 13){
+          dispatch(enableButton({ buttonId: 'removeCharacterButton' }));
+          // This seems wrong, but it works because characterIndex is updated, but cannot be accessed until this function completes.
+          if (stageIndex < 13) {
             dispatch(enableButton({ buttonId: 'stageButton' }));
-            // This seems wrong, but it works because characterIndex is updated, but cannot be accessed until this function completes.
-          } else if (characterIndex < 45) {
+          } else if (characterIndex < 45){
             dispatch(enableButton({ buttonId: 'characterButton' }));
           } else {
             // Run Cowabunga(). This might need to be changed to work properly.
@@ -54,7 +55,7 @@ const PickCharacter = () => {
     const maxTimer = 19;
     let headerCharacters = document.getElementById('headerCharacters');
     randomStageSound();
-    dispatch(disableBothButtons());
+    dispatch(disableAllButtons());
 
     function characterTimer(min, max) {
       let i = 0;

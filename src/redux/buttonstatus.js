@@ -5,8 +5,8 @@ export const buttonStatusSlice = createSlice({
   initialState: {
     stageButton: "disabled",
     characterButton: "enabled",
-    // button3: "enabled",
-    // button4: "enabled",
+    removeStageButton: "disabled",
+    removeCharacterButton: "disabled",
   },
   reducers: {
     enableButton: (state, action) => {
@@ -17,13 +17,15 @@ export const buttonStatusSlice = createSlice({
       const { buttonId } = action.payload;
       state[buttonId] = "disabled";
     },
-    disableBothButtons: (state) => {
+    disableAllButtons: (state) => {
         state.stageButton = "disabled";
         state.characterButton = "disabled";
+        state.removeStageButton = "disabled";
+        state.removeCharacterButton = "disabled";
     },
   },
 });
 
-export const { enableButton, disableButton, disableBothButtons  } = buttonStatusSlice.actions;
+export const { enableButton, disableButton, disableAllButtons  } = buttonStatusSlice.actions;
 
 export default buttonStatusSlice.reducer;
