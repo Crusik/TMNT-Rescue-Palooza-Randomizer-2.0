@@ -2,10 +2,10 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // import { gsap } from 'gsap';
 import { activateStage } from './redux/stageList';
-import { decrement } from './redux/stageIndex';
+import { decrementStageIndex } from './redux/stageIndex';
 import { enableButton, disableAllButtons  } from './redux/buttonstatus';
 
-function RemoveStage() {
+const RemoveStage = () => {
 
   const removeStageButtonStatus = useSelector((state) => state.buttonStatus.removeStageButton);
   const stageListData = useSelector((state) => state.stageList.stageListData);
@@ -24,7 +24,7 @@ function RemoveStage() {
     setTimeout(function() {
       // Change the Stage that is removed back to "Stage" default. Then go back a StageIndex
       lastStage.innerHTML = 'Stage';
-      dispatch(decrement());
+      dispatch(decrementStageIndex());
       dispatch(enableButton({ buttonId: "stageButton" }))
       dispatch(enableButton({ buttonId: "removeCharacterButton" }))
     }, 4000);

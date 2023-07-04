@@ -1,7 +1,7 @@
 import './PickStage.css'
 import { randomStageSound} from './JSPlaceholder'
 import { useDispatch, useSelector } from 'react-redux';
-import { increment } from './redux/stageIndex';
+import { incrementStageIndex } from './redux/stageIndex';
 import { deactivateStage } from './redux/stageList';
 import { enableButton, disableAllButtons  } from './redux/buttonstatus';
 
@@ -53,7 +53,7 @@ const PickStage = () => {
                         }
                     }
                     if (stageIndex < 13) {
-                        dispatch(increment());
+                        dispatch(incrementStageIndex());
                     }
                     removeStageFromSelection();
                     dispatch(enableButton({ buttonId: "characterButton" }));

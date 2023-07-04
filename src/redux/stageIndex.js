@@ -6,13 +6,13 @@ export const stageIndexSlice = createSlice({
         stageIndexCount: 0
     },
     reducers: {
-        increment: (state) => {
+        incrementStageIndex: (state) => {
             if(state.stageIndexCount < 13){
                 state.stageIndexCount++;
                 console.log(state.stageIndexCount)
             }
         },
-        decrement: (state) => {
+        decrementStageIndex: (state) => {
             if(state.stageIndexCount > 0){
                 state.stageIndexCount--;
                 console.log(state.stageIndexCount)
@@ -21,6 +21,6 @@ export const stageIndexSlice = createSlice({
     }
 })
 
-export const { increment, decrement } = stageIndexSlice.actions;
+export const { incrementStageIndex, decrementStageIndex } = stageIndexSlice.actions;
 
 export default stageIndexSlice.reducer;
