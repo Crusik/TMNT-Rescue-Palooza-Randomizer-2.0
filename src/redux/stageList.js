@@ -491,10 +491,20 @@ export const stageListSlice = createSlice({
                 });
             });
         },
+        decrementCharacterCount: (state, action) => {
+            const removedCharacter = action.payload;
+            state.stageListData.forEach(stage => {
+                stage.characters.forEach(character => {
+                    if (character.character === removedCharacter) {
+                    character.count -= 1;
+                    }
+                });
+            });
+        },
     }
 })
 
 
-export const { deactivateStage, activateStage, activateCharacter, deactivateCharacter, incrementCount } = stageListSlice.actions;
+export const { deactivateStage, activateStage, activateCharacter, deactivateCharacter, incrementCount, decrementCharacterCount } = stageListSlice.actions;
 
 export default stageListSlice.reducer;

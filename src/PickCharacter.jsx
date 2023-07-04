@@ -10,7 +10,6 @@ const PickCharacter = () => {
   const dispatch = useDispatch();
   const stageListData = useSelector((state) => state.stageList.stageListData);
   const characterIndexRef = useRef(useSelector((state) => state.characterIndex.characterIndexCount));
-  // const characterIndex = characterIndexRef.current;
   const actualCharacterIndex = useSelector((state) => state.characterIndex.characterIndexCount);
   const characterButtonStatus = useSelector((state) => state.buttonStatus.characterButton);
   const stageIndex = useSelector((state) => state.stageIndex.stageIndexCount);

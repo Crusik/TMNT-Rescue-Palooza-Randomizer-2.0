@@ -3,9 +3,11 @@ import './Sidebar';
 import { useDispatch, useSelector } from 'react-redux';
 import { enableButton, disableAllButtons  } from './redux/buttonstatus';
 import { decrementCharacterIndex } from './redux/characterIndex';
+import { decrementCharacterCount } from './redux/stageList';
 
 const RemoveCharacter = () => {
 
+    const stageListData = useSelector((state) => state.stageList.stageListData);
     const removeCharacterButtonStatus = useSelector((state) => state.buttonStatus.removeCharacterButton);
     const actualCharacterIndex = useSelector((state) => state.characterIndex.characterIndexCount);
     const characterIndexRef = useRef(useSelector((state) => state.characterIndex.characterIndexCount));
@@ -21,12 +23,15 @@ const RemoveCharacter = () => {
     
     const handleRemoveCharacter = () => {
         let lastCharacter = document.getElementById(actualCharacterIndex - 1);
+        const removedCharacter = stageListData.flatMap(stage => stage.characters)
+            .find(character => character.character === lastCharacter.textContent)
         console.log(characterIndexRef.current)
         console.log(actualCharacterIndex)
     // randomRemovalSound();
     dispatch(disableAllButtons());
     // tl.to(lastCharacter, { transform: "translateX(-100%)", duration: 1 });
     // tl.to(lastCharacter, { autoAlpha: "0", duration: 1 }, "-=1");
+    dispatch(decrementCharacterCount(removedCharacter.character));
     setTimeout(function() {
         lastCharacter.innerHTML = '';
         // characterIndexRef.current -= 1;
