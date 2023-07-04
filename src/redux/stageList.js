@@ -415,11 +415,6 @@ const initialState = {
     ],
 }
 
-// export const incrementCount = (selectedCharacter) => ({
-//     type: 'stageList/incrementCount',
-//     payload: selectedCharacter,
-// });
-
 export const stageListSlice = createSlice({
     name: "stageList",
     initialState,
@@ -446,7 +441,6 @@ export const stageListSlice = createSlice({
                   ...stage,
                   isActive: false
                 };
-          
                 // Activate characters of the stage
                 updatedStage.characters.forEach(character => {
                   character.isActive = true;

@@ -1,30 +1,20 @@
 import './PickStage.css'
-import { randomStageSound, maxTimer, minTimer } from './JSPlaceholder'
-import { useEffect } from 'react';
+import { randomStageSound} from './JSPlaceholder'
 import { useDispatch, useSelector } from 'react-redux';
-// import { isActive } from './actions';
-// import { inactive, stageListData, activeStages, active } from './redux/stageList';
-// import { deactivateStage } from './stageList';
 import { increment } from './redux/stageIndex';
 import { deactivateStage } from './redux/stageList';
 import { disableButton, enableButton, disableBothButtons  } from './redux/buttonstatus';
 
-// export let stageButton = document.getElementById('stageButton');
-// let x = 0;
-
-const PickStage = () => {
+const PickStage = ({ activeStages }) => {
     const stageListData = useSelector((state) => state.stageList.stageListData);
     const stageIndex = useSelector((state) => state.stageIndex.stageIndexCount);
     const stageButtonStatus = useSelector((state) => state.buttonStatus.stageButton);
     // const stageIndexCount = useSelector((state) => state.stageIndex);
     const dispatch = useDispatch();
-    const activeStages = stageListData
-    .filter(stage => stage.isActive)
-    .map(stage => stage.stage);
-            
-            
-            
-            
+    // const activeStages = stageListData
+    // .filter(stage => stage.isActive)
+    // .map(stage => stage.stage);
+    
     const handleStageSelection = () => {
         console.log(activeStages)
         let headerStages = document.getElementById('headerStages');
@@ -84,7 +74,6 @@ const PickStage = () => {
     <>
       <header>Stage Picker</header>
       <h1 id='headerStages'>?</h1>
-      {/* <button onClick={handleStageSelection} className="button" id="stageButton" >Start</button> */}
       <button onClick={handleStageSelection} disabled={stageButtonStatus === "disabled"} className="button" id="stageButton" >Start</button>
     </>
   )

@@ -15,7 +15,7 @@ const PickCharacter = () => {
   const characterButtonStatus = useSelector((state) => state.buttonStatus.characterButton);
   const stageIndex = useSelector((state) => state.stageIndex.stageIndexCount);
 
-  let activeCharacters = stageListData.flatMap((stage) =>
+  const activeCharacters = stageListData.flatMap((stage) =>
     stage.characters.filter((character) => character.isActive).map((character) => character.character)
   );
 
@@ -24,7 +24,7 @@ const PickCharacter = () => {
       console.log(selectedCharacter.character)
       setTimeout(() => {
         const filteredCharacters = activeCharacters.filter(character => character !== selectedCharacter.character);
-        console.log(filteredCharacters)
+        // console.log(filteredCharacters)
         func(filteredCharacters, selectedCharacter);
         setTimeout(() => {
           if(stageIndex < 13){
