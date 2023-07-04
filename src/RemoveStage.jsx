@@ -27,7 +27,7 @@ const RemoveStage = () => {
       dispatch(decrementStageIndex());
       dispatch(enableButton({ buttonId: "stageButton" }))
       dispatch(enableButton({ buttonId: "removeCharacterButton" }))
-    }, 4000);
+    }, 9000);
   };
   return (
     <>

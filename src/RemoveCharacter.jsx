@@ -52,7 +52,7 @@ const RemoveCharacter = () => {
         // stageAndCharacterCheck();
         // characterButton.disabled = false;
         // enableRemoveButtons(removeStageButton, removeCharacterButton);
-    }, 4000);
+    }, 7000);
     }
 
     return (

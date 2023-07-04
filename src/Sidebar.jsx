@@ -6,6 +6,7 @@ import RemoveStage from './RemoveStage';
 import RemoveCharacter from './RemoveCharacter';
 
 
+
 const Sidebar = () => {
     return (
         <div className='sidebar'>

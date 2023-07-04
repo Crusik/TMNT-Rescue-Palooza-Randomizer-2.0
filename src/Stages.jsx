@@ -1,6 +1,7 @@
 import React from 'react';
 import './Stages.css';
 import Stage from './Stage';
+import TMNT from './Images/TMNT.png'
 
 function Stages(){
     return (
@@ -23,6 +24,7 @@ function Stages(){
             <Stage stageName="Techno-Drome" player1Id={41} player2Id={42}/>
             <Stage stageName="Techno-Drome" player1Id={43} player2Id={44}/>
             <Stage stageName="Techno-Drome" player1Id={45} player2Id={46}/>
+            <img src={TMNT} alt='TMNT Rescue Palooza' className='TMNT-Logo'/>
         </div>
     );
 }
