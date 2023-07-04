@@ -3,7 +3,7 @@ import { randomStageSound} from './JSPlaceholder'
 import { useDispatch, useSelector } from 'react-redux';
 import { increment } from './redux/stageIndex';
 import { deactivateStage } from './redux/stageList';
-import { disableButton, enableButton, disableAllButtons  } from './redux/buttonstatus';
+import { enableButton, disableAllButtons  } from './redux/buttonstatus';
 
 const PickStage = () => {
     const stageListData = useSelector((state) => state.stageList.stageListData);
