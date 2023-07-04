@@ -5,11 +5,15 @@ import { increment } from './redux/stageIndex';
 import { deactivateStage } from './redux/stageList';
 import { disableButton, enableButton, disableAllButtons  } from './redux/buttonstatus';
 
-const PickStage = ({ activeStages }) => {
+const PickStage = () => {
     const stageListData = useSelector((state) => state.stageList.stageListData);
     const stageIndex = useSelector((state) => state.stageIndex.stageIndexCount);
     const stageButtonStatus = useSelector((state) => state.buttonStatus.stageButton);
     const dispatch = useDispatch();
+
+    const activeStages = stageListData
+    .filter(stage => stage.isActive)
+    .map(stage => stage.stage);
     
     const handleStageSelection = () => {
         console.log(activeStages)
