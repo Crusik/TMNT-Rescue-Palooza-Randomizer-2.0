@@ -7,7 +7,7 @@ import { enableButton, disableAllButtons } from './redux/buttonstatus';
 import { deactivateCharacter, incrementCount } from './redux/stageList';
 import { playRandomAudio, characterSelectionClips, completionClips } from './AudioClips'
 
-const PickCharacter = () => {
+const PickCharacter = ({ handleShowImage }) => {
   const dispatch = useDispatch();
   const stageListData = useSelector((state) => state.stageList.stageListData);
   const characterIndexRef = useRef(useSelector((state) => state.characterIndex.characterIndexCount));
@@ -60,7 +60,6 @@ const PickCharacter = () => {
     const minTimer = 20;
     const maxTimer = 36;
     let headerCharacters = document.getElementById('headerCharacters');
-    // randomStageSound();
     dispatch(disableAllButtons());
 
     function characterTimer(min, max) {
@@ -96,6 +95,7 @@ const PickCharacter = () => {
               if (characterIndexRef.current > 45) {
                 console.log(actualCharacterIndex)
                 playRandomAudio(completionClips);
+                handleShowImage();
                 // Just need to display the Cowabunga Logo
               }
             }

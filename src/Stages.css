@@ -1,4 +1,15 @@
+.stage {
+  color: rgb(228, 238, 228);
+  font-size: 0.6rem;
+  margin: 0.7rem;
+  text-align: center;
+  width: 17%;
+  box-shadow: 0 0 20px rgb(12, 48, 12);
+  padding: 10px 5px;
+  border-radius: 10%;
+}
+
 .TMNT-Logo {
-  margin: auto ;
-  padding: 10px;
+  height: 22%;
+  margin: 0.2rem auto ;
 }

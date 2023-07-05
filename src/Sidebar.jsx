@@ -7,11 +7,11 @@ import RemoveCharacter from './RemoveCharacter';
 
 
 
-const Sidebar = () => {
+const Sidebar = ({ handleShowImage }) => {
     return (
         <div className='sidebar'>
             <PickStage /> 
-            <PickCharacter />
+            <PickCharacter handleShowImage={handleShowImage} />
             <RemoveStage />
             <RemoveCharacter />
         </div>
