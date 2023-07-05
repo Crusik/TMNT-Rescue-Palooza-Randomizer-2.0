@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { enableButton, disableAllButtons  } from './redux/buttonstatus';
 import { decrementCharacterIndex } from './redux/characterIndex';
 import { decrementCharacterCount } from './redux/stageList';
+import { playRandomAudio, removeCharacterClips } from './AudioClips'
 
 const RemoveCharacter = () => {
 
@@ -22,6 +23,7 @@ const RemoveCharacter = () => {
     // Need to make sure to take away a count to each character that was removed.
     
     const handleRemoveCharacter = () => {
+        playRandomAudio(removeCharacterClips)
         let lastCharacter = document.getElementById(actualCharacterIndex - 1);
         const removedCharacter = stageListData.flatMap(stage => stage.characters)
             .find(character => character.character === lastCharacter.textContent)

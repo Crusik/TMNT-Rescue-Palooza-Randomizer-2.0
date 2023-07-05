@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { incrementCharacterIndex } from './redux/characterIndex';
 import { enableButton, disableAllButtons } from './redux/buttonstatus';
 import { deactivateCharacter, incrementCount } from './redux/stageList';
+import { playRandomAudio, characterSelectionClips, completionClips } from './AudioClips'
 
 const PickCharacter = () => {
   const dispatch = useDispatch();
@@ -46,6 +47,7 @@ const PickCharacter = () => {
 
   const handleRunTwice = () => {
     // Play Music
+    playRandomAudio(characterSelectionClips);
     runTwice((activeCharactersList, callback) => {
       handleCharacterSelection(activeCharactersList, callback);
     });
@@ -55,8 +57,8 @@ const PickCharacter = () => {
     console.log(activeCharactersList)
     // console.log(characterIndex);
     console.log(characterIndexRef.current);
-    const minTimer = 10;
-    const maxTimer = 19;
+    const minTimer = 20;
+    const maxTimer = 36;
     let headerCharacters = document.getElementById('headerCharacters');
     // randomStageSound();
     dispatch(disableAllButtons());
@@ -67,10 +69,10 @@ const PickCharacter = () => {
         headerCharacters.textContent = activeCharactersList[i++ % activeCharactersList.length];
       }, 60);
       var rand = Math.floor(Math.random() * (max - min + 1) + min);
-      console.log(rand / 2 + ' seconds');
+      console.log(rand / 4 + ' seconds');
       setTimeout(function() {
         clearInterval(intervalHandle);
-      }, 500 * rand);
+      }, 250 * rand);
       function displayCharacter() {
         setTimeout(() => {
             let characters = document.getElementById(characterIndexRef.current);
@@ -84,17 +86,23 @@ const PickCharacter = () => {
             if (selectedCharacter) {
               dispatch(incrementCount(selectedCharacter.character));
               dispatch(deactivateCharacter(selectedCharacter.character));
-              if (actualCharacterIndex < 47) {
-                dispatch(incrementCharacterIndex());
-                // The following is to add to a reference of characterIndex that is local to this function. Since this function is ran twice in a row, the characterIndex is updated, but
-                // the function cannot access it while the runTwice() function is still running on the second func() call.
-                // characterIndexRef.current += 1;
+            }
+            if (actualCharacterIndex < 47) {
+              dispatch(incrementCharacterIndex());
+              console.log(characterIndexRef.current)
+              // The following is to add to a reference of characterIndex that is local to this function. Since this function is ran twice in a row, the characterIndex is updated, but
+              // the function cannot access it while the runTwice() function is still running on the second func() call.
+              // characterIndexRef.current += 1;
+              if (characterIndexRef.current > 45) {
+                console.log(actualCharacterIndex)
+                playRandomAudio(completionClips);
+                // Just need to display the Cowabunga Logo
               }
             }
             if (typeof callback === 'function') {
               callback(selectedCharacter);
             }
-          }, 500 * rand + 50);
+          }, 250 * rand + 50);
       }
     displayCharacter();
   }

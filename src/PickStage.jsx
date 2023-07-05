@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { incrementStageIndex } from './redux/stageIndex';
 import { deactivateStage } from './redux/stageList';
 import { enableButton, disableAllButtons  } from './redux/buttonstatus';
+import { playRandomAudio, stageSelectionClips } from './AudioClips'
 
 const PickStage = () => {
     const stageListData = useSelector((state) => state.stageList.stageListData);
@@ -17,11 +18,12 @@ const PickStage = () => {
     
     const handleStageSelection = () => {
         // Play Music
+        playRandomAudio(stageSelectionClips)
         console.log(activeStages)
         let headerStages = document.getElementById('headerStages');
         console.log(stageIndex)
-        const minTimer = 10;
-        const maxTimer = 20;
+        const minTimer = 20;
+        const maxTimer = 36;
         dispatch(disableAllButtons());
         randomStageSound();
         // Timer for the random picker. The timer will be random within a set range "min-max"
@@ -31,10 +33,10 @@ const PickStage = () => {
                 headerStages.textContent = activeStages[i++ % activeStages.length];
             }, 60);
             var rand = Math.floor(Math.random() * (max - min + 1) + min); //Generate Random number between min - max
-            console.log(rand / 2 + ' seconds');
+            console.log(rand / 4 + ' seconds');
             setTimeout(function() {
                 clearInterval(intervalHandle);
-            }, 500 * rand);
+            }, 250 * rand);
 
             function displayStage() {
                 setTimeout(() => {
@@ -59,7 +61,7 @@ const PickStage = () => {
                     removeStageFromSelection();
                     dispatch(enableButton({ buttonId: "characterButton" }));
                     dispatch(enableButton({ buttonId: "removeStageButton" }));
-                }, 500 * rand + 50);
+                }, 250 * rand + 50);
             }
             displayStage();
         }

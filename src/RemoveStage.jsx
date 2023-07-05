@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { activateStage } from './redux/stageList';
 import { decrementStageIndex } from './redux/stageIndex';
 import { enableButton, disableAllButtons  } from './redux/buttonstatus';
+import { playRandomAudio, removeStageClips } from './AudioClips'
 
 const RemoveStage = () => {
 
@@ -13,6 +14,7 @@ const RemoveStage = () => {
   const dispatch = useDispatch();
 
   const removeLastStage = () => {
+    playRandomAudio(removeStageClips)
     dispatch(disableAllButtons())
     const lastStage = document.getElementById(stageIndex - 1);
     for (var i = 0; i < stageListData.length; i++) {
