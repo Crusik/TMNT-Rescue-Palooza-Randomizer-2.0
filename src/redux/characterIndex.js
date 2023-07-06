@@ -8,11 +8,11 @@ export const characterIndexSlice = createSlice({
     reducers: {
         incrementCharacterIndex: (state) => {
                 state.characterIndexCount++;
-                console.log(state.characterIndexCount)
+                // console.log(state.characterIndexCount)
         },
         decrementCharacterIndex: (state) => {
             state.characterIndexCount--;
-            console.log(state.characterIndexCount)
+            // console.log(state.characterIndexCount)
         }
     }
 })

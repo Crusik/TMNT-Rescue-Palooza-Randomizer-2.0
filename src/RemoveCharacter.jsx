@@ -3,7 +3,7 @@ import './Sidebar';
 import { useDispatch, useSelector } from 'react-redux';
 import { enableButton, disableAllButtons  } from './redux/buttonstatus';
 import { decrementCharacterIndex } from './redux/characterIndex';
-import { decrementCharacterCount } from './redux/stageList';
+import { activateCharacter, decrementCharacterCount } from './redux/stageList';
 import { playRandomAudio, removeCharacterClips } from './AudioClips'
 
 const RemoveCharacter = () => {
@@ -34,6 +34,7 @@ const RemoveCharacter = () => {
     // tl.to(lastCharacter, { transform: "translateX(-100%)", duration: 1 });
     // tl.to(lastCharacter, { autoAlpha: "0", duration: 1 }, "-=1");
     dispatch(decrementCharacterCount(removedCharacter.character));
+    dispatch(activateCharacter(removedCharacter.character));
     setTimeout(function() {
         lastCharacter.innerHTML = '';
         // characterIndexRef.current -= 1;
