@@ -1,4 +1,3 @@
-// import { useState } from 'react';
 import './App.scss';
 import Sidebar from './Sidebar';
 import Stages from './Stages';

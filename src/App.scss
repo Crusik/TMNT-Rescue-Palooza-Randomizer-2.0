@@ -5,54 +5,36 @@
   font-family: Georgia, serif;
 }
 
-body {
-  height: 100vh;
-}
+// body {
+//   height: 100vh;
+// }
 
 .app {
   position: relative;
   display: flex;
-  overflow-x: hidden;
-  overflow-y: hidden;
-
-  .sidebar {
-    flex: 1;
-  }
-
-  // .stages {
-  //   flex: 5;
-  //   background-color: rgb(19, 77, 19);
-  //   color: rgb(228, 238, 228);
-  //   display: flex;
-  //   flex-direction: row;
-  //   flex-wrap: wrap;
-  //   padding: 1em;
-  //   height: 100vh;
-  // }
 }
 
 header {
   color: #fff;
-  font-size: 150%;
-  height: 7vh;
-  margin-top: 1rem;
+  font-size: 24px;
+  margin-top: 10px;
   text-align: center;
 }
 
 .sidebar {
+  flex: 1;
   background-color: rgb(19, 77, 19);
   border-right: 2px solid rgb(185, 185, 185);
-  padding: 1%;
+  display: flex;
+  flex-direction: column;
 }
 
 h1#headerStages,
 h1#headerCharacters {
   color: rgb(228, 238, 228);
   font-size: 1.5em;
-  height: 8vh;
   margin: auto;
   text-align: center;
-  width: 80%;
 }
 
 .button {
@@ -61,11 +43,9 @@ h1#headerCharacters {
   border-radius: 10px;
   color: #fff;
   cursor: pointer;
-  display: block;
   font-size: 1.2em;
   font-weight: bold;
-  letter-spacing: 2px;
-  margin: 0 auto;
+  margin: 1rem auto;
   padding: 10px;
   text-align: center;
   text-transform: uppercase;
@@ -85,31 +65,9 @@ h1#headerCharacters {
   background-color: rgb(150, 150, 150);
 }
 
-
-// .stage {
-//   color: rgb(228, 238, 228);
-//   font-size: 0.6rem;
-//   margin: 0.7rem;
-//   text-align: left;
-//   width: 17%;
-//   box-shadow: 0 0 20px rgb(12, 48, 12);
-//   padding: 10px 5px;
-// }
-
-// .stage p {
-//   font-size: 1.3rem;
-// }
-
-
-// .logo {
-//   margin-left: 15%;
-//   width: 17%;
-// }
-
 h2,
 h3 {
   font-size: 2.1em;
-  // text-align: center;
 }
 
 ul {
@@ -152,21 +110,11 @@ li {
 //   transition: opacity 2s ease-in-out;
 // }
 
-// #cowabunga-logo.fadeIn {
-//   opacity: 1;
-// }
-
 .character {
   display: inline-block;
   opacity: 0;
   transform: translateX(-100%);
 }
-
-// #intro {
-//   height: 80%;
-//   width: 80%;
-//   display: none;
-// }
 
 .image-container {
   position: absolute;
