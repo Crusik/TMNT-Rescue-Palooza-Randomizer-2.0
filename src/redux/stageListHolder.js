@@ -1,3 +1,4 @@
+// Normal/Story Mode
 const initialState = {
     stageListData: [
         {
@@ -413,9 +414,9 @@ const initialState = {
     ],
 }
 
-// Arcade Mode
+// Arcade Mode. All characters will be unlocked. Turtles and "normal" characters will start with +1 count. Need to add the additional characters to the Default stage.
 
-const initialState = {
+const initialState2 = {
     stageListData: [
         {
             stageId: 0,
@@ -829,3 +830,6 @@ const initialState = {
         }
     ],
 }
+
+console.log(initialState)
+console.log(initialState2)
