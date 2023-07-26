@@ -11,25 +11,25 @@ const initialState = {
                     id: 0,
                     character: "Don",
                     isActive: true,
-                    count: 2
+                    count: 1
                 },
                 {
                     id: 1,
                     character: "Leo",
                     isActive: true,
-                    count: 2
+                    count: 1
                 },
                 {
                     id: 2,
                     character: "Mikey",
                     isActive: true,
-                    count: 2
+                    count: 1
                 },
                 {
                     id: 3,
                     character: "Raph",
                     isActive: true,
-                    count: 2
+                    count: 1
                 }
             ]
         },
@@ -41,20 +41,20 @@ const initialState = {
                 {
                     id: 4,
                     character: "April",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 },
                 {
                     id: 5,
                     character: "Bebop",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 },
                 {
                     id: 6,
                     character: "Rocksteady",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 }
             ]
         },
@@ -66,32 +66,32 @@ const initialState = {
                 {
                     id: 7,
                     character: "Genghis",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 },
                 {
                     id: 8,
                     character: "Rasputin",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 },
                 {
                     id: 9,
                     character: "Napoleon",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 },
                 {
                     id: 10,
                     character: "Atilla",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 },
                 {
                     id: 11,
                     character: "Leatherhead",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 },
             ]
         },
@@ -103,14 +103,14 @@ const initialState = {
                 {
                     id: 12,
                     character: "Ray Fillet",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 },
                 {
                     id: 13,
                     character: "Armaggon",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 }
             ]
         },
@@ -122,14 +122,14 @@ const initialState = {
                 {
                     id: 14,
                     character: "Splinter",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 },
                 {
                     id: 15,
                     character: "Rat King",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 }
             ]
         },
@@ -141,20 +141,20 @@ const initialState = {
                 {
                     id: 16,
                     character: "Mondo Gecko",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 },
                 {
                     id: 17,
                     character: "Ace Duck",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 },
                 {
                     id: 18,
                     character: "Chrome Dome",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 }
             ]
         },
@@ -166,38 +166,38 @@ const initialState = {
                 {
                     id: 19,
                     character: "Dask",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 },
                 {
                     id: 20,
                     character: "Kala",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 },
                 {
                     id: 21,
                     character: "Zak",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 },
                 {
                     id: 22,
                     character: "Anthrax",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 },
                 {
                     id: 23,
                     character: "Traag",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 },
                 {
                     id: 24,
                     character: "Granitor",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 }
             ]
         },
@@ -209,32 +209,32 @@ const initialState = {
                 {
                     id: 25,
                     character: "Aska",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 },
                 {
                     id: 26,
                     character: "Usagi",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 },
                 {
                     id: 27,
                     character: "Lotus",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 },
                 {
                     id: 28,
                     character: "Tatsu",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 },
                 {
                     id: 29,
                     character: "Shogun",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 }
             ]
         },
@@ -246,32 +246,32 @@ const initialState = {
                 {
                     id: 30,
                     character: "Irma",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 },
                 {
                     id: 31,
                     character: "Burne",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 },
                 {
                     id: 32,
                     character: "Vernon",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 },
                 {
                     id: 33,
                     character: "Baxter",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 },
                 {
                     id: 34,
                     character: "Karai",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 }
             ]
         },
@@ -283,26 +283,26 @@ const initialState = {
                 {
                     id: 35,
                     character: "Mona Lisa",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 },
                 {
                     id: 36,
                     character: "Wingnut",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 },
                 {
                     id: 37,
                     character: "Groundchuck",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 },
                 {
                     id: 38,
                     character: "Dirtbag",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 }
             ]
         },
@@ -314,20 +314,20 @@ const initialState = {
                 {
                     id: 39,
                     character: "Hothead",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 },
                 {
                     id: 40,
                     character: "Fugitoid",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 },
                 {
                     id: 41,
                     character: "Tora",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 }
             ]
         },
@@ -339,20 +339,20 @@ const initialState = {
                 {
                     id: 42,
                     character: "Casey Jones",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 },
                 {
                     id: 43,
                     character: "Tempestra",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 },
                 {
                     id: 44,
                     character: "Triceraton",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 }
             ]
         },
@@ -364,20 +364,20 @@ const initialState = {
                 {
                     id: 45,
                     character: "Metalhead",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 },
                 {
                     id: 46,
                     character: "Slash",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 },
                 {
                     id: 47,
                     character: "Mecaturtle",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 }
             ]
         },
@@ -389,26 +389,26 @@ const initialState = {
                 {
                     id: 48,
                     character: "Muckman",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 },
                 {
                     id: 49,
                     character: "Zach",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 },
                 {
                     id: 50,
                     character: "Tokka",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 },
                 {
                     id: 51,
                     character: "Rahzar",
-                    isActive: true,
-                    count: 1
+                    isActive: false,
+                    count: 0
                 }
             ]
         }
