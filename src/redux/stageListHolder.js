@@ -827,6 +827,61 @@ const initialState2 = {
                     count: 1
                 }
             ]
+        },
+        {
+            stageId: 14,
+            stage: "Arcade",
+            isActive: false,
+            characters: [
+                {
+                    id: 52,
+                    character: "Scale Tail",
+                    isActive: true,
+                    count: 0
+                },
+                {
+                    id: 53,
+                    character: "Pizzaface",
+                    isActive: true,
+                    count: 0
+                },
+                {
+                    id: 54,
+                    character: "Scratch",
+                    isActive: true,
+                    count: 0
+                },
+                {
+                    id: 55,
+                    character: "War",
+                    isActive: true,
+                    count: 0
+                },
+                {
+                    id: 55,
+                    character: "C.Shredder",
+                    isActive: true,
+                    count: 0
+                },
+                {
+                    id: 55,
+                    character: "S.Shredder",
+                    isActive: true,
+                    count: 0
+                },
+                {
+                    id: 55,
+                    character: "Krang",
+                    isActive: true,
+                    count: 0
+                },
+                {
+                    id: 55,
+                    character: "Shredder",
+                    isActive: true,
+                    count: 0
+                }
+            ]
         }
     ],
 }
