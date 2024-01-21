@@ -15,10 +15,6 @@ body {
   overflow-x: hidden;
   overflow-y: hidden;
 
-  .sidebar {
-    flex: 1;
-  }
-
   // .stages {
   //   flex: 5;
   //   background-color: rgb(19, 77, 19);
@@ -40,6 +36,7 @@ header {
 }
 
 .sidebar {
+  flex: 1;
   background-color: rgb(19, 77, 19);
   border-right: 2px solid rgb(185, 185, 185);
   padding: 1%;
