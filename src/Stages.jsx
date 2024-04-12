@@ -17,9 +17,9 @@ function Stages(){
                     <Stage stageIndex={6} player1Id={25} player2Id={26}/>
                     <Stage stageIndex={7} player1Id={27} player2Id={28}/>
                     <Stage stageIndex={8} player1Id={29} player2Id={30}/>
-                    <img src={TMNT} alt='TMNT Rescue Palooza' className='TMNT-Logo'/>
                     <Stage stageIndex={9} player1Id={31} player2Id={32}/>
                     <Stage stageIndex={10} player1Id={33} player2Id={34}/>
+                    <img src={TMNT} alt='TMNT Rescue Palooza' className='TMNT-Logo'/>
                     <Stage stageIndex={11} player1Id={35} player2Id={36}/>
                     <Stage stageIndex={12} player1Id={37} player2Id={38}/>
                     <Stage stageName="Krang" player1Id={39} player2Id={40}/>
@@ -27,7 +27,9 @@ function Stages(){
                     <Stage stageName="Techno-Drome" player1Id={43} player2Id={44}/>
                     <Stage stageName="Techno-Drome" player1Id={45} player2Id={46}/>
             </div>
-            <CharacterSprites />
+            <div className='sprites'>
+                <CharacterSprites/>
+            </div>
 
             {/* <img src={TMNT} alt='TMNT Rescue Palooza' className='TMNT-Logo'/> */}
         </div>

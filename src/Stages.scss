@@ -6,16 +6,19 @@
   // display: flex;
   // flex-direction: column;
   // flex-wrap: wrap;
+  display: flex;
   padding: 1em;
   height: 100vh;
 }
 
 .stages-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  flex: 4;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   // repeat(auto-fit, minmax(15rem, 1fr));
   height: 80%;
+  // width: 75%;
 }
 
 .TMNT-Logo {
@@ -59,4 +62,10 @@ li {
   // padding: auto;
   // text-align: left;
   text-align: center;
+}
+
+.sprites {
+  flex: 2;
+  // height: 100vh;
+  // background-color: rgb(193, 212, 193);
 }
