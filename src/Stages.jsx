@@ -2,6 +2,7 @@ import React from 'react';
 import './Stages.scss';
 import Stage from './Stage';
 import TMNT from './Images/TMNT.png'
+import CharacterSprites from './CharacterSprites';
 
 function Stages(){
     return (
@@ -26,7 +27,8 @@ function Stages(){
                     <Stage stageName="Techno-Drome" player1Id={43} player2Id={44}/>
                     <Stage stageName="Techno-Drome" player1Id={45} player2Id={46}/>
             </div>
-            {/* I will need to use player1Id && || player2Id during the selection process */}
+            <CharacterSprites />
+
             {/* <img src={TMNT} alt='TMNT Rescue Palooza' className='TMNT-Logo'/> */}
         </div>
     );

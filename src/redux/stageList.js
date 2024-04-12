@@ -1,4 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
+// import { require } from "node:module";
+
+// Make a sprite method that will return the sprite based on the isActive value of the character and display in an img tag
+
+
 
 const initialState = {
     stageListData: [
@@ -11,7 +16,8 @@ const initialState = {
                     id: 0,
                     character: "Don",
                     isActive: true,
-                    count: 1
+                    count: 1,
+                    // sprite: if(characters.isActive) {require('./Images/Turtle Sprites/Donny/Donny - Color.png')} else {require('./Images/Turtle Sprites/Donny/Donny - Grey.png')}
                 },
                 {
                     id: 1,

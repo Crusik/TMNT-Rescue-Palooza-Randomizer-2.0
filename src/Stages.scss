@@ -1,5 +1,5 @@
 .stages-container {
-  font-size: calc(15px + 0.390625vw);
+  // font-size: calc(15px + 0.390625vw);
   flex: 5;
   background-color: rgb(19, 77, 19);
   color: rgb(228, 238, 228);
@@ -15,7 +15,7 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   // repeat(auto-fit, minmax(15rem, 1fr));
-  height: 100%;
+  height: 80%;
 }
 
 .TMNT-Logo {
@@ -31,7 +31,7 @@
 .stage {
   color: rgb(228, 238, 228);
   font-size: 0.6rem;
-  margin: 0.7rem;
+  margin: 0.4rem;
   text-align: center;
   box-shadow: 0 0 20px rgb(12, 48, 12);
   padding: 10px 5px;
