@@ -468,6 +468,19 @@ export const stageListSlice = createSlice({
                 });
             });
         },
+        
+        activateCharacter: (state, action) => {
+            const removedCharacter = action.payload;
+            state.stageListData.forEach(stage => {
+                stage.characters.forEach(character => {
+                    if (character.character === removedCharacter) {
+                        if(character.count < 3) {
+                            character.isActive = true;
+                        }
+                    }
+                });
+            });
+        },
 
         incrementCount: (state, action) => {
             const selectedCharacter = action.payload;

@@ -88,7 +88,7 @@ const PickCharacter = ({ handleShowImage }) => {
             }
             if (actualCharacterIndex < 47) {
               dispatch(incrementCharacterIndex());
-              console.log(characterIndexRef.current)
+              // console.log(characterIndexRef.current)
               // The following is to add to a reference of characterIndex that is local to this function. Since this function is ran twice in a row, the characterIndex is updated, but
               // the function cannot access it while the runTwice() function is still running on the second func() call.
               // characterIndexRef.current += 1;

@@ -21,7 +21,7 @@ const PickStage = () => {
         playRandomAudio(stageSelectionClips)
         console.log(activeStages)
         let headerStages = document.getElementById('headerStages');
-        console.log(stageIndex)
+        // console.log(stageIndex)
         const minTimer = 20;
         const maxTimer = 36;
         dispatch(disableAllButtons());
