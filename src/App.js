@@ -3,6 +3,7 @@ import Sidebar from './Sidebar';
 import Stages from './Stages';
 import cowabunga from './Images/cowabunga.png'
 import { useState } from 'react';
+import CharacterSprites from './CharacterSprites';
 
 const App = () => {
 
