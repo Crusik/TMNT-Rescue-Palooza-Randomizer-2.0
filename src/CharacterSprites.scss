@@ -1,5 +1,28 @@
 .character-sprites {
     margin: 1px 3px;
-    padding: 5px 2px;
+    padding: 0px 2px;
     // height: 8vh;
+    flex: 5;
+}
+
+.sprites {
+    display: flex;
+    // flex: 2;
+    // width: 25%;
+}
+
+.container {
+    display: flex;
+    margin: 1em;
+}
+
+.TMNT-Logo {
+    // margin: auto;
+    // grid-row: span 3;
+    // grid-column: span 1;
+    // height: 600px;
+    // margin: 0.2rem auto ;
+    // width: 100%;
+    // padding: 10px 5px;
+    flex: 1;
 }

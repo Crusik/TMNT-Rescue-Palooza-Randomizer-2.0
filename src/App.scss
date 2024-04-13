@@ -3,27 +3,25 @@
   margin: 0;
   padding: 0;
   font-family: Georgia, serif;
+  background-color: rgb(19, 77, 19);
 }
-
-// body {
-//   height: 100vh;
-// }
 
 .app {
   position: relative;
   display: flex;
+  height: 100vh;
 }
 
 header {
   color: #fff;
   font-size: 24px;
-  margin-top: 10px;
+  margin-top: 2em;
+  margin-bottom: 1em;
   text-align: center;
 }
 
 .sidebar {
   flex: 1;
-  background-color: rgb(19, 77, 19);
   border-right: 2px solid rgb(185, 185, 185);
   display: flex;
   flex-direction: column;
@@ -33,7 +31,7 @@ h1#headerStages,
 h1#headerCharacters {
   color: rgb(228, 238, 228);
   font-size: 1.5em;
-  margin: auto;
+  margin: 1em auto;
   text-align: center;
 }
 
@@ -100,12 +98,8 @@ h3 {
   position: absolute;
   right: 20%;
   top: 50%;
-  // transform: translate(-50%, -50%);
 }
 
 .cowabunga {
-  // position: absolute;
-  // right: 50%;
-  // top: 50%;
   transform: translate(-50%, -50%);
 }
