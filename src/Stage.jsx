@@ -1,15 +1,18 @@
-import React from 'react';
-import './Stage.css';
-
 function Stage(props) {
-  const { stageName, player1Id, player2Id, stageIndex } = props;
+  const { stageName, playerIds, stageIndex } = props;
 
   return (
     <div className="stage">
-      <h2 id={stageIndex}>{stageName || 'Stage'}</h2>
+      {/* Display stage name or "Stage" */}
+      <h2 id={stageIndex}>{stageName || `Stage ${stageIndex + 1}`}</h2>
+      
+      {/* Render players dynamically */}
       <ul>
-        <li><span id={player1Id} className="character"></span></li>
-        <li><span id={player2Id} className="character"></span></li>
+        {playerIds.map((playerId, index) => (
+          <li key={index}>
+            <span id={playerId} className="character"></span>
+          </li>
+        ))}
       </ul>
     </div>
   );

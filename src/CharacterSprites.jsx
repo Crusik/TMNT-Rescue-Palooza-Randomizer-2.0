@@ -12,7 +12,7 @@ const CharacterSprites = () => {
     const allCharacters = stageListData.flatMap(stage => stage.characters);
 
     return (
-        <div className="container">
+        <div className="container-sprites">
             <div className="character-sprites">
                 {allCharacters.map(character => (
                     <img

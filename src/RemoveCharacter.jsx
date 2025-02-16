@@ -52,10 +52,10 @@ const RemoveCharacter = () => {
     }
 
     return (
-        <>
+        <div>
             <header>Remove Last Character</header>
             <button className="button" onClick={handleRemoveCharacter} disabled={removeCharacterButtonStatus === "disabled"} id="removeCharacterButton">Remove</button>
-        </>
+        </div>
     )
 }
 

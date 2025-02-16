@@ -3,56 +3,84 @@
   margin: 0;
   padding: 0;
   font-family: Georgia, serif;
-  background-color: rgb(19, 77, 19);
+  // background-color: rgb(19, 77, 19);
+}
+
+html,body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(#195e19, #134D13);
 }
 
 .app {
   position: relative;
   display: flex;
-  height: 100vh;
-}
-
-header {
-  color: #fff;
-  font-size: 24px;
-  margin-top: 2em;
-  margin-bottom: 1em;
-  text-align: center;
+  height: 100dvh;
 }
 
 .sidebar {
   flex: 1;
   border-right: 2px solid rgb(185, 185, 185);
+  display: grid;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.sidebar * {
+  /* Ensure all child elements respect the sidebar's layout */
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
+
+header {
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+}
+
 
 h1#headerStages,
 h1#headerCharacters {
   color: rgb(228, 238, 228);
   font-size: 1.5em;
-  margin: 1em auto;
+  margin: 1em;
   text-align: center;
 }
 
 .button {
   background: #1fa91f;
-  border: 3px solid #fff;
+  // border: 2px solid #dbdbdb;
   border-radius: 10px;
-  color: #fff;
+  color: #dbdbdb;
   cursor: pointer;
   font-size: 1.2em;
   font-weight: bold;
-  margin: 1rem auto;
   padding: 10px;
-  text-align: center;
   text-transform: uppercase;
-  width: 70%;
+  width: 60%;
+  flex: none;
+}
+
+@media (max-width: 1200px) {
+  .button {
+    font-size: 0.8em;
+  }
+
+  h1#headerStages,
+  h1#headerCharacters {
+    font-size: 1em;
+  }
+
+  header {
+    font-size: 1.3em;
+  }
 }
 
 #removeCharacterButton,
 #removeStageButton {
-  background-color: #ff0000;
+  background-color: #860505;
   margin-top: 1.5rem;
 }
 
@@ -60,39 +88,21 @@ h1#headerCharacters {
 #removeStageButton:disabled,
 #stageButton:disabled,
 #characterButton:disabled {
-  background-color: rgb(150, 150, 150);
-}
-
-h2,
-h3 {
-  font-size: 2.1em;
+  background-color: rgb(110, 110, 110);
 }
 
 .button:hover {
   background-color: #fff;
-  border-color: #1fa91f;
+  // border-color: #1fa91f;
   color: #1fa91f;
 }
 
 #removeStageButton:hover,
 #removeCharacterButton:hover {
   background-color: #fff;
-  border-color: #ff0000;
-  color: #ff0000;
+  // border-color: #860505;
+  color: #860505;
 }
-
-// #cowabunga-logo {
-//   opacity: 0;
-//   position: absolute;
-//   right: 50%;
-//   top: 50%;
-//   transform: translate(10%, -70%);
-//   -webkit-transition: opacity 2s ease-in-out;
-//   -moz-transition: opacity 2s ease-in-out;
-//   -ms-transition: opacity 2s ease-in-out;
-//   -o-transition: opacity 2s ease-in-out;
-//   transition: opacity 2s ease-in-out;
-// }
 
 .image-container {
   position: absolute;
@@ -102,4 +112,119 @@ h3 {
 
 .cowabunga {
   transform: translate(-50%, -50%);
+}
+
+@media (max-width: 600px) {
+  .app {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    padding: 1em 0.5em;
+    border-right: none;
+    border-bottom: 2px solid rgb(185, 185, 185);
+  }
+
+  h1#headerStages,
+  h1#headerCharacters {
+    font-size: 1em;
+    margin: 1em;
+  }
+
+  header {
+    font-size: 1em;
+  }
+
+  .button {
+    font-size: 0.8em;
+    width: 60%;
+  }
+}
+
+@media (max-height: 600px) {
+  .app {  
+    flex-direction: column;
+  }
+
+  .sidebar {
+    // height: 50vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    padding: 1em 0;
+    border-right: none;
+    border-bottom: 2px solid rgb(185, 185, 185);
+  }
+
+  h1#headerStages,
+  h1#headerCharacters {
+    font-size: 1em;
+    margin: 0.5em;
+  }
+
+  #removeStageButton, #removeCharacterButton {
+    margin-top: 0.5rem;
+  }
+
+  header {
+    font-size: 1em;
+  }
+
+  .button {
+    font-size: 0.8em;
+    width: 40%;
+  }
+
+  header {
+    font-size: 0.9em;
+  }
+}
+
+// the following is for preventing the Application from reloading
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+}
+
+.modal p {
+  font-size: 1.2em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.modal button {
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal button:first-child {
+  background-color: red;
+  color: white;
+}
+
+.modal button:last-child {
+  background-color: gray;
+  color: white;
 }

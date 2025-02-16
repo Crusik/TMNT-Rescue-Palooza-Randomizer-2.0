@@ -1,4 +1,3 @@
-import './PickStage.css'
 import { randomStageSound} from './JSPlaceholder'
 import { useDispatch, useSelector } from 'react-redux';
 import { incrementStageIndex } from './redux/stageIndex';
@@ -73,11 +72,11 @@ const PickStage = () => {
     };
 
     return (
-    <>
+    <div>
       <header>Stage Picker</header>
       <h1 id='headerStages'>?</h1>
       <button onClick={handleStageSelection} disabled={stageButtonStatus === "disabled"} className="button" id="stageButton" >Start</button>
-    </>
+    </div>
   )
 };
 export default PickStage;

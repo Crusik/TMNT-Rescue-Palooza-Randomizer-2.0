@@ -32,12 +32,12 @@ const RemoveStage = () => {
     }, 9000);
   };
   return (
-    <>
+    <div>
       <header>Remove Last Stage</header>
       <button onClick={removeLastStage} disabled={removeStageButtonStatus === "disabled"} className="button" id="removeStageButton">
         Remove
       </button>
-    </>
+    </div>
   );
 }
 

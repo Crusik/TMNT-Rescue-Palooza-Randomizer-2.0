@@ -1,28 +1,138 @@
 .character-sprites {
     margin: 1px 3px;
     padding: 0px 2px;
-    // height: 8vh;
     flex: 5;
+    height: 60px;
 }
 
-.sprites {
+.container-sprites {
     display: flex;
-    // flex: 2;
-    // width: 25%;
-}
-
-.container {
-    display: flex;
-    margin: 1em;
+    margin: 0 1em;
+    height: 40vh;
 }
 
 .TMNT-Logo {
-    // margin: auto;
-    // grid-row: span 3;
-    // grid-column: span 1;
-    // height: 600px;
-    // margin: 0.2rem auto ;
-    // width: 100%;
-    // padding: 10px 5px;
+    margin: auto;
+    grid-row: span 3;
+    max-height: 100%;
+    width: 100%;
+    padding: 5px 5px;
     flex: 1;
+}
+
+@media (max-width: 1450px) {
+    .character-sprites {
+        height: 68px;
+    }
+
+    @media (max-height: 750px) {
+        .character-sprites {
+            height: 60px;
+        }
+        .container-sprites {
+            height: 30vh;
+        }
+    }
+}
+
+@media (min-width: 1450px) {
+    .character-sprites {
+        height: 85px;
+    }
+
+    @media (max-height: 750px) {
+        .character-sprites {
+            height: 72px;
+        }
+    }
+}
+@media (max-width: 1180px) {
+    .character-sprites {
+        height: 60px;
+    }
+
+    .TMNT-Logo {
+        height: 30vh;
+    }
+
+    @media (max-height: 750px) {
+        .character-sprites {
+            height: 60px;
+        }
+        .container-sprites {
+            height: 30vh;
+        }
+    }
+}
+
+@media (max-width: 1024px){
+    .character-sprites {
+        height: 60px;
+    }
+
+    .container-sprites {
+        height: 30vh;
+    }
+
+    .TMNT-Logo {
+        grid-row: span 4;
+    }
+
+    @media (max-height: 750px) {
+        .character-sprites {
+            height: 40px;
+        }
+        .container-sprites {
+            height: 25vh;
+        }
+    }
+}
+
+@media (max-width: 880px){
+    .character-sprites {
+        height: 50px;
+    }
+
+    @media (max-height: 750px) {
+        .character-sprites {
+            height: 40px;
+        }
+    }
+    .TMNT-Logo {
+        display: none;
+      }
+}
+
+@media (max-width: 600px) {
+    .character-sprites {
+        height: 45px;
+    }
+    .container-sprites {
+        margin: 2em 0;
+        height: 25vh;
+        flex: 1;
+    }
+}
+
+@media (max-width: 400px) {
+    .character-sprites {
+        height: 40px;
+    }
+    .container-sprites {
+        margin: 0.5em;
+    }
+}
+
+@media (max-height: 600px) {
+    .character-sprites {
+        height: 50px;
+    }
+    .container-sprites {
+        margin: 2em 0;
+        height: 40vh;
+        flex: 1;
+    }
+    .TMNT-Logo {
+        display: none;
+    }
 }

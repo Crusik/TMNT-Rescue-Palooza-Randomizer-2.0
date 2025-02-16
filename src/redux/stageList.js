@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 // import { require } from "node:module";
 
 const initialState = {
+    numberOfPlayers: null,
     stageListData: [
         {
             stageId: 0,
@@ -421,6 +422,10 @@ export const stageListSlice = createSlice({
     name: "stageList",
     initialState,
     reducers: {
+
+        setNumberOfPlayers: (state, action) => {
+            state.numberOfPlayers = action.payload; // Set the number of players dynamically
+        },
         
         activateStage: (state, action) => {
             const { stageId } = action.payload;
@@ -459,17 +464,30 @@ export const stageListSlice = createSlice({
         },
       
         deactivateCharacter: (state, action) => {
-            const selectedCharacter = action.payload;
-            state.stageListData.forEach(stage => {
-                stage.characters.forEach(character => {
-                    if (character.character === selectedCharacter) {
-                        if(character.count >= 3) {
-                            character.isActive = false;
-                        }
+            const selectedCharacter = action.payload.character;
+            const numberOfPlayers = action.payload.numberOfPlayers; // Get numberOfPlayers dynamically
+            let threshold = 3; // Default threshold for 2 players
+            
+            // Set threshold based on the number of players
+            if (numberOfPlayers === 3) {
+                threshold = 4;
+            } else if (numberOfPlayers === 4) {
+                threshold = 6;
+            }
+            
+            // Loop through the stageListData to find the character
+            state.stageListData.forEach((stage) => {
+                stage.characters.forEach((character) => {
+                if (character.character === selectedCharacter) {
+                    // Check if the character's count is greater than or equal to the threshold
+                    if (character.count >= threshold) {
+                    character.isActive = false; // Deactivate the character
                     }
+                }
                 });
             });
         },
+          
         
         activateCharacter: (state, action) => {
             const removedCharacter = action.payload;
@@ -509,6 +527,6 @@ export const stageListSlice = createSlice({
 })
 
 
-export const { deactivateStage, activateStage, activateCharacter, deactivateCharacter, incrementCount, decrementCharacterCount } = stageListSlice.actions;
+export const { setNumberOfPlayers, deactivateStage, activateStage, activateCharacter, deactivateCharacter, incrementCount, decrementCharacterCount } = stageListSlice.actions;
 
 export default stageListSlice.reducer;
