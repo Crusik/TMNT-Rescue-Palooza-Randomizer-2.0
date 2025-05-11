@@ -12,7 +12,7 @@ const Sidebar = ({ handleShowImage, numberOfPlayers }) => {
             <PickStage /> 
             <PickCharacter handleShowImage={handleShowImage} numberOfPlayers={numberOfPlayers}/>
             <RemoveStage />
-            <RemoveCharacter />
+            <RemoveCharacter numberOfPlayers={numberOfPlayers}/>
         </div>
     );
 }
